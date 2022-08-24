@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route } from "react-router-dom";
+import LandingPage from "./Components/LandingPage";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/*Se agregan las rutas para el primer spint solo queda importar los componentes y pasarlos a cada ruta, puede ser necesario realizar cambios, ir descomentando una a una para que se puedan renderizar bien los componentes */}
+
+      {/*Ruta Landing Page */}
+      <Route exact path={"/"} component={LandingPage} />
+
+      {/*Ruta Catalogo de Libros */}
+      {/* <Route path={"/books"} component={} /> */}
+
+      {/*Ruta Detalles de Libro */}
+      {/* <Route path={"/books/detail/:id"} component={} /> */}
+
+      {/*Ruta Inicio de Sesion */}
+      {/* <Route path={"/login"} component={} /> */}
+
+      {/*Ruta administrador*/}
+      {/* <Route path={"/user/admin"} component={} /> */}
+    </>
   );
 }
 
