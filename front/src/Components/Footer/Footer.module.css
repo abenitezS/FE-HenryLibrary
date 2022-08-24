@@ -1,0 +1,76 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    background-color: #F2F1EF;
+    height: 7rem;
+    margin-top: 5rem;
+}
+
+.h1{
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 28px;
+    color: #ABABAB;
+    padding-left: 3rem;
+}
+
+.h1_1{
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 28px;
+    color: #01A86C;
+    padding-right: 18rem;
+}
+
+.contacto{
+    display: flex;
+    width: 250rem;
+    align-self: flex-end;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.h3{
+    color: #01A86C;
+    font-family: Quicksand;
+    font-size: 12px;
+    margin-right: 2rem;
+}
+
+.telefono{
+    color: #01A86C;
+    font-family: Quicksand;
+    font-size: 13px;
+    margin-right: 2rem; 
+}
+
+.mediosDePago{
+    display: flex ;
+    width: 200rem;
+    align-content: flex-end;
+    align-self: flex-end;
+    justify-content: end;
+    margin-bottom: 1rem;
+}
+
+.img{
+    width: 100px;
+}
+
+
+.redes{
+    display: flex ;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-right: 4rem;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    gap: 2rem
+}
