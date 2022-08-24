@@ -1,22 +1,21 @@
 
 
 body{
-    
         margin: 0px;
         padding: 0px;
         box-sizing: border-box;
-
 }
 
 .container{
     display: flex;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .h1{
     font-family: Quicksand;
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 40px;
     color: #ABABAB;
     padding-left: 3rem;
 }
@@ -24,7 +23,7 @@ body{
 .h1_1{
     font-family: Quicksand;
     font-weight: bolder;
-    font-size: 45px;
+    font-size: 40px;
     color: #01A86C;
     padding-right: 18rem;
 }

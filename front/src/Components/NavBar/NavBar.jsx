@@ -9,7 +9,7 @@ import {VscAccount } from "react-icons/vsc"
 import {MdOutlineFavoriteBorder} from "react-icons/md"
 import {BsCart2} from "react-icons/bs"
 
-import "./NavBar.css"
+import styles from "./NavBar.module.css"
 
 
 
@@ -18,17 +18,17 @@ export default function NavBar() {
 
 
   return (
-  <nav className="container">
-        <h1 className="h1"><NavLink to="/">Libreria</NavLink></h1>
-        <h1 className="h1_1"><NavLink to="/">HENRY</NavLink></h1>
+  <nav className={styles.container}>
+        <h1 className={styles.h1}><NavLink to="/">Libreria</NavLink></h1>
+        <h1 className={styles.h1_1}><NavLink to="/">HENRY</NavLink></h1>
 
-        <div className="search"><Search /></div>  
+        <div className={styles.search}><Search /></div>  
         
-        <div className="iconos"><NavLink to="/favoritos"><MdOutlineFavoriteBorder /></NavLink></div>
+        <div className={styles.iconos}><NavLink to="/favoritos"><MdOutlineFavoriteBorder /></NavLink></div>
         
-        <div className="iconos"><NavLink to="/login">< VscAccount/></NavLink></div>
+        <div className={styles.iconos}><NavLink to="/login">< VscAccount/></NavLink></div>
 
-        <div className="iconos"><NavLink to="/carrito">< BsCart2/></NavLink></div>
+        <div className={styles.iconos}><NavLink to="/carrito">< BsCart2/></NavLink></div>
         
         <button>BanderaParaIdioma</button>  
         {/* Texto rovisorio hasta que hagamos la funcion de idiomas */}

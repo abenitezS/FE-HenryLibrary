@@ -8,21 +8,22 @@ body{
 
 }
 
-.container_navBar2{
+.container{
     display: flex;
+    width: 87%;
     border-top: 2px solid #D9D9D9;
     margin-left: 3rem;
-    margin-right: 4rem;
-    padding-top: 0.5rem;
+    margin-top: 0.5rem;
     align-items: center;
     justify-content: center;
-    gap: 16rem;
+    gap: 10rem;
 }
 
 .h3{
     display: flex;
+    margin-top: 1rem;
     color: #01A86C;
     font-family: Quicksand;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 20px;
 }
