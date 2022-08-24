@@ -8,19 +8,22 @@ import { ChakraProvider } from "@chakra-ui/react";
 import store from "./store";
 import dotenv from "dotenv";
 import axios from "axios";
+import { BrowserRouter } from "react-router-dom";
 dotenv.config();
 
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <ChakraProvider resetCSS={true}>
-                <App />
-            </ChakraProvider>
-        </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <Provider store={store}>
+      <ChakraProvider resetCSS={true}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
