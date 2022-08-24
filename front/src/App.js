@@ -1,6 +1,10 @@
 import { Route } from "react-router-dom";
-import LandingPage from "./Components/LandingPage";
+
 import "./App.css";
+
+//COMPONENTES
+import LandingPage from "./Components/LandingPage/LandingPage";
+
 
 function App() {
   return (
@@ -12,6 +16,13 @@ function App() {
 
       {/*Ruta Catalogo de Libros */}
       {/* <Route path={"/books"} component={} /> */}
+
+      {/*Ruta Catalogo de Libros */}
+      {/* <Route path={"/carrito"} component={} /> */}
+
+      
+      {/*Ruta Catalogo de Libros */}
+      {/* <Route path={"/favoritos"} component={} /> */}
 
       {/*Ruta Detalles de Libro */}
       {/* <Route path={"/books/detail/:id"} component={} /> */}
