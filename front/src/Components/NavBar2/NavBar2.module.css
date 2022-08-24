@@ -1,0 +1,29 @@
+
+
+body{
+    
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+
+}
+
+.container{
+    display: flex;
+    width: 87%;
+    border-top: 2px solid #D9D9D9;
+    margin-left: 3rem;
+    margin-top: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.h3{
+    display: flex;
+    margin-top: 1rem;
+    color: #01A86C;
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 20px;
+}
