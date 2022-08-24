@@ -18,7 +18,7 @@ export default function Footer() {
   <div className={styles.container}>
 
     <h1 className={styles.h1}>Libreria</h1>
-    <h1 className={styles.h1_1}>HENRY</h1>
+    <h2 className={styles.h1_1}>HENRY</h2>
 
     <div className={styles.contacto}>
       <h3 className={styles.h3}><NavLink to="">Politicas de Devolucion</NavLink></h3>
