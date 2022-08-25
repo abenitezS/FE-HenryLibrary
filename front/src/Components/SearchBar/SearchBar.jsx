@@ -1,4 +1,5 @@
 import React from "react";
+import { RiSearch2Line } from "react-icons/ri";
 
 export default function SerachBar() {
   const handledSubmit = (event) => {
@@ -25,7 +26,9 @@ export default function SerachBar() {
             ? resultsSearch.map((r) => <li>{r.name}</li>)
             : null}
         </ul> */}
-        <input type={"submit"} value={"Search"} />
+        <button title="Search" type="submit">
+          <RiSearch2Line size="1.5rem" />
+        </button>
       </form>
     </>
   );
