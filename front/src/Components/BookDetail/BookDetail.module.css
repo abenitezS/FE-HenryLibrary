@@ -1,0 +1,20 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+
+.detail {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container{
+    /* background-color: blue; */
+    height: 50%;
+    width: 90%;
+}
