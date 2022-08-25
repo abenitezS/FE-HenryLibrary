@@ -1,5 +1,11 @@
 import React from "react";
+
+//REACT ICONS
 import { RiSearch2Line } from "react-icons/ri";
+
+//CSS
+import styles from "./SearchBar.module.css"
+
 
 export default function SerachBar() {
   const handledSubmit = (event) => {
@@ -12,10 +18,9 @@ export default function SerachBar() {
 
   return (
     <>
-      <form onSubmit={handledSubmit}>
-        <input
+      <form className={styles.conteiner} onSubmit={handledSubmit}>
+        <input className={styles.input}
           type={"text"}
-          className="input"
           placeholder="Busca un Libro..."
           onChange={handleChange}
         />
@@ -26,8 +31,8 @@ export default function SerachBar() {
             ? resultsSearch.map((r) => <li>{r.name}</li>)
             : null}
         </ul> */}
-        <button title="Search" type="submit">
-          <RiSearch2Line size="1.5rem" />
+        <button className={styles.button} title="Search" type="submit">
+          <RiSearch2Line className={styles.icono} size="1.5rem" />
         </button>
       </form>
     </>
