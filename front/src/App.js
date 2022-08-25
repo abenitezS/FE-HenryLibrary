@@ -6,6 +6,7 @@ import "./App.css";
 
 //COMPONENTES
 import LandingPage from "./Components/LandingPage/LandingPage";
+import Home from "./Components/Home/Home";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Route exact path={"/"} component={SearchBar} />
 
       {/*Ruta Catalogo de Libros */}
-      {/* <Route path={"/books"} component={} /> */}
+      <Route path={"/home"} component={Home} />
 
       {/*Ruta Catalogo de Libros */}
       {/* <Route path={"/carrito"} component={} /> */}
