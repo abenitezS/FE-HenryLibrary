@@ -4,6 +4,7 @@ import "./App.css";
 
 //COMPONENTES
 import LandingPage from "./Components/LandingPage/LandingPage";
+import Home from "./Components/Home/Home";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <Route exact path={"/"} component={LandingPage} />
 
       {/*Ruta Catalogo de Libros */}
-      {/* <Route path={"/books"} component={} /> */}
+      <Route path={"/home"} component={Home} />
 
       {/*Ruta Catalogo de Libros */}
       {/* <Route path={"/carrito"} component={} /> */}
