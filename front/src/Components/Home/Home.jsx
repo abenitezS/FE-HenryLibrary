@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllBooks } from "../../actions/index.js";
 
 //COMPONENTES
 import NavBar from "../NavBar/NavBar.jsx"
 import NavBar2 from "../NavBar2/NavBar2.jsx"
 import Footer from "../Footer/Footer.jsx";
+import Book from "../Book/Book.jsx";
 
 //CSS
 import styles from "./Home.module.css"
@@ -12,8 +15,25 @@ import banner from "./banner.jpg"
 
 
 
+
 export default function Home() {
 
+    const dispatch = useDispatch();
+    const allBooks = useSelector((state) => state.allBooks);
+
+    useEffect(() => {
+        dispatch(getAllBooks());
+    
+      }, [dispatch]);
+    
+  
+    console.log("allBooks", allBooks)
+
+
+
+
+
+    
     return (
   
      <div className={styles.home}>
@@ -37,7 +57,16 @@ export default function Home() {
         
         <div className={styles.cuerpo}>
             <div className={styles.filtro}> ACA VAN LOS FILTRO </div>
-            <div className={styles.cards}> ACA VAN LAS CARDS </div>
+            <div className={styles.cards}> 
+                     {allBooks && allBooks.map((b) => (
+                         <Book key={b.id} 
+                               id={b.id} 
+                               title={b.volumeInfo.title } 
+                               authors={b.volumeInfo.authors} 
+                               image={b.volumeInfo.imageLinks.smallThumbnail}
+                               />
+                        ) ) }
+            </div>
         </div>
    
   
