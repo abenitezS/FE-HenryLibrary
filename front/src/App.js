@@ -4,6 +4,7 @@ import "./App.css";
 //COMPONENTES
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Home from "./Components/Home/Home";
+import BookDetail from "./Components/BookDetail/BookDetail";
 
 
 
@@ -25,7 +26,7 @@ function App() {
       {/* <Route path={"/favoritos"} component={} /> */}
 
       {/*Ruta Detalles de Libro */}
-      {/* <Route path={"/books/detail/:id"} component={} /> */}
+      <Route path={"/books/detail/:id"} component={BookDetail} />
 
       {/*Ruta Inicio de Sesion */}
       {/* <Route path={"/login"} component={} /> */}
