@@ -1,0 +1,53 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.home{
+    display: flex;
+    flex-direction: column; 
+}
+
+.banner{
+    width: 88%;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+
+.ordenamientos{
+    background-color: #F2F1EF;
+    width: 30%;
+    height: 3rem;
+    margin-left: 34rem;
+    margin-top: 5rem;
+}
+
+.paginado{
+    background-color: #F2F1EF;
+    width: 10%;
+    height: 3rem;
+    margin-left: 76.5rem;
+    margin-top: 2rem;
+}
+
+.cuerpo{
+    width: 85%;
+    height: 30rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: 5rem;
+}
+
+
+.filtro{
+    background-color: #F2F1EF;
+    width: 20%;
+}
+
+.cards{
+    background-color: #F2F1EF;
+    width: 70%;
+}
