@@ -1,12 +1,11 @@
 import { Route } from "react-router-dom";
-
-import SearchBar from "./Components/SearchBar/SearchBar";
-
 import "./App.css";
 
 //COMPONENTES
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Home from "./Components/Home/Home";
+
+
 
 function App() {
   return (
