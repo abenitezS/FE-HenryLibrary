@@ -25,12 +25,10 @@ body{
     font-weight: bolder;
     font-size: 40px;
     color: #01A86C;
-    padding-right: 18rem;
+    margin-right: 15rem;
 }
 
-.search{
-    padding-right: 18rem;
-}
+
 
 .iconos{
     padding-right: 1rem;

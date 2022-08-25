@@ -14,7 +14,7 @@ function App() {
       {/*Se agregan las rutas para el primer spint solo queda importar los componentes y pasarlos a cada ruta, puede ser necesario realizar cambios, ir descomentando una a una para que se puedan renderizar bien los componentes */}
 
       {/*Ruta Landing Page */}
-      <Route exact path={"/"} component={SearchBar} />
+      <Route exact path={"/"} component={LandingPage} />
 
       {/*Ruta Catalogo de Libros */}
       <Route path={"/home"} component={Home} />
