@@ -20,11 +20,11 @@ export const DELETE_BOOKS_DETAIL = "DELETE_BOOKS_DETAIL";
 export function getAllBooks() {
     return function (dispatch) {
      
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=1&printType=books&maxResults=40`)
+      axios.get(`/catalog`)
         .then(response => {
           dispatch({
             type: "GET_ALL_BOOKS",
-            payload: response.data.items
+            payload: response.data
           });
         })
       .catch(error => {
@@ -38,11 +38,11 @@ export function getAllBooks() {
 export function getNameBooks() {
     return function (dispatch) {
      
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=1&printType=books&maxResults=40`)
+      axios.get(`/catalog?title=harry`)
         .then(response => {
           dispatch({
             type: "GET_NAME_BOOKS",
-            payload: response.data.items
+            payload: response.data
           });
         })
       .catch(error => {
