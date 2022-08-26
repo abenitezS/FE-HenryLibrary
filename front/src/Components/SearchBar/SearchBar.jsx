@@ -29,13 +29,16 @@ export default function SerachBar() {
   };
 
 
+
+
   const handledSubmit = (event) => {
     event.preventDefault();
 
 
+    history.push("/home")
     dispatch(getNameBooks(title))
     setTitle("")
-    history.push("/home")
+
     
   };
 
