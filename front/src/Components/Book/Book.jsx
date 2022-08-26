@@ -22,7 +22,7 @@ export default function Book({id,title,authors,image, price}) {
       <NavLink to={`/catalog/detail/${id}`}><img className={styles.img} src={image} alt="imagenDelLibro" /></NavLink>
 
       <p className={styles.title}>{title}</p>
-      {/* <h4 className={styles.authors}>{authors}</h4> */}
+      <h4 className={styles.authors}>{authors.map(a => a.name)}</h4>
 
       <div className={styles.conteiner} >
 

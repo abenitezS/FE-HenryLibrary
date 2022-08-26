@@ -45,21 +45,50 @@ export default function BookDetail() {
       <NavBar />
       <NavBar2 />
     
-    <div className="container">
-      <div>
-        <img src={bookDetail.image} alt="imagen del libro"/>
+    <div className={styles.container}>
+
+      <div className={styles.containerItems}>
+        <div >
+            <img  className={styles.img1} src={bookDetail.image} alt="imagen del libro"/>
+        </div>
+
+        <div className={styles.img}>
+            <img className={styles.img2} src={bookDetail.image} alt="imagen del libro"/>
+            <img className={styles.img2} src={bookDetail.image} alt="imagen del libro"/>
+            <img className={styles.img2} src={bookDetail.image} alt="imagen del libro"/>
+        </div>
       </div>
 
-      <div>
-        <h2>{bookDetail.title}</h2>
+      
+
+    <div className={styles.conteiner2}>
+        
+      <div className={styles.info}>
+        <h2 className={styles.title}>{bookDetail.title}</h2>
         {/* <h4>{bookDetail.author}</h4>  */}
         {/* <h4>{bookDetail.publisher}</h4> */}
-        <h4>{bookDetail.publishedDate}</h4> 
-        <h4>{bookDetail.description}</h4>
-
-        <div>{bookDetail.price}</div>
-       
+        <h4 className={styles.datos}>{bookDetail.publishedDate}</h4> 
+        <h4 className={styles.datos}>{bookDetail.description}</h4>
       </div>
+      
+      <div className={styles.compra}>
+
+      <div className={styles.compra1}>
+
+       <h2 className={styles.precio}>$ {bookDetail.price}</h2>
+
+      <div>
+       <label className={styles.input} htmlFor="stock">Stock:</label>
+       <input className={styles.stock} type="text" name="stock"/>
+      </div>
+
+      </div>
+
+       <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
+      </div>
+
+    </div>
+
     </div>
 
       <Footer />
