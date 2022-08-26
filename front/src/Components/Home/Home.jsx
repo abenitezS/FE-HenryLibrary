@@ -43,18 +43,20 @@ export default function Home() {
       </div>
 
       <div className={styles.cuerpo}>
+
         <div className={styles.filtro}>
           <CategoryFilter />
         </div>
+
         <div className={styles.cards}>
           {allBooks &&
             allBooks.map((b) => (
               <Book
                 key={b.id}
                 id={b.id}
-                title={b.volumeInfo.title}
-                authors={b.volumeInfo.authors}
-                image={b.volumeInfo.imageLinks.smallThumbnail}
+                title={b.title}
+                authors={b.authors}
+                image={b.image}
               />
             ))}
         </div>
