@@ -13,12 +13,14 @@ export default function Book({id,title,authors,image}) {
 
 
     
+
+
     return (
   
      <div className={styles.book}>
       <img className={styles.img} src={image} alt="imagenDelLibro" />
-      <p className={styles.title} >{title}</p>
-      <h4 className={styles.authors} >{authors}</h4>
+      <p className={styles.title}>{title}</p>
+      {/* <h4 className={styles.authors}>{authors}</h4> */}
 
       <div className={styles.conteiner} >
 

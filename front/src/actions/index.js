@@ -35,10 +35,10 @@ export function getAllBooks() {
 
 
 
-export function getNameBooks() {
+export function getNameBooks(title) {
     return function (dispatch) {
      
-      axios.get(`/catalog?title=harry`)
+      axios.get(`/catalog?title=${title}`)
         .then(response => {
           dispatch({
             type: "GET_NAME_BOOKS",
