@@ -67,20 +67,21 @@ export default function BookDetail() {
         <h2 className={styles.title}>{bookDetail.title}</h2>
         {/* <h4>{bookDetail.author}</h4>  */}
         {/* <h4>{bookDetail.publisher}</h4> */}
-        <h4 className={styles.datos}>{bookDetail.publishedDate}</h4> 
-        <h4 className={styles.datos}>{bookDetail.description}</h4>
+        <h4 className={styles.datos}>Fecha de Publicacion: {bookDetail.publishedDate}</h4> 
+        <h4 className={styles.datos}>Rating: {bookDetail.rating}</h4> 
+        <h4 className={styles.description}>{bookDetail.description}</h4>
       </div>
       
       <div className={styles.compra}>
 
       <div className={styles.compra1}>
 
-       <h2 className={styles.precio}>$ {bookDetail.price}</h2>
+         <h2 className={styles.precio}>$ {bookDetail.price}</h2>
 
-      <div>
-       <label className={styles.input} htmlFor="stock">Stock:</label>
-       <input className={styles.stock} type="text" name="stock"/>
-      </div>
+       <div>
+        <label className={styles.input} htmlFor="stock">Stock:</label>
+        <input className={styles.stock} type="text" name="stock"/>
+       </div>
 
       </div>
 
@@ -90,7 +91,8 @@ export default function BookDetail() {
     </div>
 
     </div>
-
+      
+      <div className={styles.recomendados}>ACA VAN NUESTROS RECOMENDADOS </div>
       <Footer />
     </div>
   );

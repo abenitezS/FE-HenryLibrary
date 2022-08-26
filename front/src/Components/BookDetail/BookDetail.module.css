@@ -11,23 +11,25 @@ body {
 
 .container{
     margin-top: 7rem;
-    height: 70%;
-    width: 100%; 
+    margin-left: 3rem;
+    height: 60%;
+    width: 90%; 
     display: flex;
-    margin-bottom: 4rem;
+    margin-bottom: 7rem;
+    justify-content: space-around;
 }
 
 .containerItems{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    width: 40%;
     justify-content: space-around;
 }
 
 .img1{
-    height: 400px;
-    width: 400px; 
+    height: 300px;
+    width: 300px; 
 }
 
  .img{
@@ -47,6 +49,7 @@ body {
 .conteiner2{
     display: flex;
     flex-direction: column;
+    width: 60%; 
 }
 
 
@@ -55,6 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
     height: 80%;
     padding-right: 5rem;
 }
@@ -75,9 +79,15 @@ body {
     margin-bottom: 1rem;
 } 
 
+.description{
+    font-family: Quicksand;
+    font-size: 15px;
+    margin-bottom: 1rem;
+}
+
 .compra{
     display: flex;
-    height: 20%;
+    height: 35%;
     justify-content: space-between;
     justify-items: center;
 }
@@ -105,6 +115,7 @@ body {
 
 .stock{
     width: 60px;
+    margin: 1px solid black ;
 }
 
 
@@ -126,4 +137,13 @@ body {
 
 .boton:hover{
     background-color: #11875c;
+}
+
+
+.recomendados{
+    margin-top: 3rem;
+    width: 80%;
+    height: 20%;
+    justify-content: center;
+    border: 2px solid black;
 }
