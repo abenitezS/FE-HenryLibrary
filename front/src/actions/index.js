@@ -28,7 +28,7 @@ export function getAllBooks() {
           });
         })
       .catch(error => {
-        console.log("getAllCountries",error)
+        console.log("getAllBooks",error)
       })
     };
   }
@@ -46,7 +46,7 @@ export function getNameBooks() {
           });
         })
       .catch(error => {
-        console.log("getAllCountries",error)
+        console.log("getNameBooks",error)
       })
     };
   }
@@ -67,7 +67,7 @@ export function getNameBooks() {
           });
         })
       .catch(error => {
-        console.log("getAllCountries",error)
+        console.log("getBooksId",error)
       })
     };
   }
