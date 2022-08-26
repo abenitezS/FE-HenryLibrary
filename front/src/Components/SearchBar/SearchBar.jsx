@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameBooks } from "../../actions";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation  } from "react-router-dom";
 
 //REACT ICONS
 import { RiSearch2Line } from "react-icons/ri";
@@ -16,6 +16,7 @@ import styles from "./SearchBar.module.css"
 
 export default function SerachBar() {
 
+  const location = useLocation();
   const history = useHistory();
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
@@ -38,8 +39,6 @@ export default function SerachBar() {
     history.push("/home")
     dispatch(getNameBooks(title))
     setTitle("")
-
-    
   };
 
 
