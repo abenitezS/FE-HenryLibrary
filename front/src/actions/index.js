@@ -57,9 +57,7 @@ export function getNameBooks(title) {
   export function getBooksId(id) {
     return function (dispatch) {
 
-      
-     
-      axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`)
+      axios.get(`/catalog/${id}`)
         .then(response => {
           dispatch({
             type: "GET_BOOKS_ID",

@@ -2,7 +2,7 @@ import { GET_ALL_BOOKS, GET_NAME_BOOKS, GET_BOOKS_ID, DELETE_BOOKS_DETAIL } from
 
 const initialState = {
     allBooks: [],
-    bookDetail: {}
+    bookDetail: []
 };
 
 function rootReducer(state = initialState, action) {
