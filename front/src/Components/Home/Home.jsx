@@ -57,6 +57,7 @@ export default function Home() {
                 title={b.title}
                 authors={b.authors}
                 image={b.image}
+                price={b.price}
               />
             ))}
         </div>

@@ -24,10 +24,10 @@ export default function BookDetail() {
 
   const bookDetail = useSelector((state) => state.bookDetail);
 
-  console.log(bookDetail)
+  console.log("bookDetail", bookDetail)
 
   useEffect(() => {
-    dispatch(getBooksId("bY3w0PZSzU8C"));
+    dispatch(getBooksId(id));
     console.log("el componente se monto");
 
     return () => {
@@ -47,16 +47,18 @@ export default function BookDetail() {
     
     <div className="container">
       <div>
-        {/* <img src={} alt="imagen del libro"/> */}
+        <img src={bookDetail.image} alt="imagen del libro"/>
       </div>
 
       <div>
-        {/* <h2>{bookDetail.volumeInfo.title}</h2>
-        <h4>{bookDetail.volumeInfo.author}</h4> 
-        <h4>{bookDetail.volumeInfo.publisher}</h4>
-        <h4>{bookDetail.volumeInfo.publishedDate}</h4> 
-        <h4>{bookDetail.volumeInfo.description}</h4>
-        */}
+        <h2>{bookDetail.title}</h2>
+        {/* <h4>{bookDetail.author}</h4>  */}
+        {/* <h4>{bookDetail.publisher}</h4> */}
+        <h4>{bookDetail.publishedDate}</h4> 
+        <h4>{bookDetail.description}</h4>
+
+        <div>{bookDetail.price}</div>
+       
       </div>
     </div>
 

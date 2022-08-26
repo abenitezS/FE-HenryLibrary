@@ -20,7 +20,7 @@ export const DELETE_BOOKS_DETAIL = "DELETE_BOOKS_DETAIL";
 export function getAllBooks() {
     return function (dispatch) {
      
-      axios.get(`/catalog/`)
+      axios.get(`/catalog`)
         .then(response => {
           dispatch({
             type: "GET_ALL_BOOKS",
@@ -57,8 +57,7 @@ export function getNameBooks(title) {
   export function getBooksId(id) {
     return function (dispatch) {
 
-      
-      axios.get(`/catalog/:${id}`)
+      axios.get(`/catalog/${id}`)
         .then(response => {
           dispatch({
             type: "GET_BOOKS_ID",

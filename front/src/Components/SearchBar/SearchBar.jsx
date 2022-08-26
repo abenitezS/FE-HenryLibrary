@@ -30,15 +30,15 @@ export default function SerachBar() {
   };
 
 
+
+
   const handledSubmit = (event) => {
     event.preventDefault();
 
 
-      dispatch(getNameBooks(title))
-      setTitle("")
-      history.push("/home");  
-      // window.location.go("/home")
-
+    history.push("/home")
+    dispatch(getNameBooks(title))
+    setTitle("")
   };
 
 
