@@ -31,21 +31,15 @@ export default function NavBar() {
 
   return (
     <nav className={styles.container}>
-      <h1 className={styles.h1}>
-        <NavLink to="/">Libreria</NavLink>
-      </h1>
-      <h2 className={styles.h1_1}>
-        <NavLink to="/">HENRY</NavLink>
-      </h2>
+      
+      <h1 className={styles.h1}><NavLink to="/">Libreria</NavLink></h1>
 
-      <div className={styles.search}>
-        <SearchBar />
-      </div>
+      <h2 className={styles.h1_1}><NavLink to="/">HENRY</NavLink></h2>
+
+      <div className={styles.search}><SearchBar /></div>
 
       <div className={styles.iconos}>
-        <NavLink to="/favoritos">
-          <MdOutlineFavoriteBorder />
-        </NavLink>
+        <NavLink to="/favoritos"><MdOutlineFavoriteBorder /></NavLink>
       </div>
 
       <div className={styles.iconos}>
@@ -53,9 +47,7 @@ export default function NavBar() {
       </div>
 
       <div className={styles.iconos}>
-        <NavLink to="/carrito">
-          <BsCart2 />
-        </NavLink>
+        <NavLink to="/carrito"><BsCart2 /></NavLink>
       </div>
 
       <button>BanderaParaIdioma</button>
