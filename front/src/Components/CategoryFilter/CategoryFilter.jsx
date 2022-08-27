@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCategories } from "../../actions";
 import { List, ListItem, Heading, Link, Collapse } from "@chakra-ui/react";
 
 //CSS
@@ -6,22 +8,24 @@ import { List, ListItem, Heading, Link, Collapse } from "@chakra-ui/react";
 
 //REACT ICONS
 
-const categories = [
-  "Fantasia",
-  "Infantiles",
-  "Aventura",
-  "Ciencia Ficcion",
-  "Policial",
-  "Romance",
-  "Historia",
-  "Novela",
-  "Suspenso",
-  "Terror",
-  "Comedia",
-];
+// const categories = [
+//   "Fantasia",
+//   "Infantiles",
+//   "Aventura",
+//   "Ciencia Ficcion",
+//   "Policial",
+//   "Romance",
+//   "Historia",
+//   "Novela",
+//   "Suspenso",
+//   "Terror",
+//   "Comedia",
+// ];
 
 export default function Footer() {
-  const [show, setShow] = React.useState(false);
+  const dispatch = useDispatch(),
+    [show, setShow] = useState(false),
+    categories = useSelector((state) => state.categories);
 
   const handleToggle = () => setShow(!show);
 
@@ -29,6 +33,12 @@ export default function Footer() {
     event.preventDefault();
     console.log(event.target.text);
   };
+
+  useEffect(() => {
+    //Obtener la informacion una vez cargue la pagina y traiaga la informacion necesaria.
+    dispatch(getCategories());
+  }, [dispatch]);
+
   return (
     <>
       <Heading
@@ -40,17 +50,19 @@ export default function Footer() {
       >
         Genero
       </Heading>
+
       <Collapse startingHeight={150} in={show}>
         <List spacing={-1} pt="10px" pl="10px">
           {categories.map((category) => (
-            <ListItem>
+            <ListItem key={category.id}>
               <Link
                 style={{ textDecoration: "none" }}
                 fontFamily="Quicksand"
-                fontSize={18}
+                fontSize={12}
+                textTransform="capitalize"
                 onClick={handledClick}
               >
-                {category}
+                {category.name}
               </Link>
             </ListItem>
           ))}
