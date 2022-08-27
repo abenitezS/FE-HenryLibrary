@@ -1,14 +1,39 @@
-import React from "react";
+import React,{useState} from "react";
 
 //CSS
 import styles from "./Login.module.css";
 import { Avatar} from "@chakra-ui/react";
-import {FiMail} from "react-icons/fi"
+import {FiMail, FiEyeOff, FiEye} from "react-icons/fi"
 import {MdNoEncryptionGmailerrorred} from "react-icons/md"
 
 
 
 function Login() {
+
+  const [login, setLogin] = useState({
+    username:"",
+    password: ""
+  })
+
+  const [show, setShow] = useState(false)
+
+
+
+  function handleChange(event) {
+
+      setLogin({
+      ...login,
+      [event.target.name]: event.target.value
+      })
+  }
+
+  function onHandleClick(){
+    setShow(!show)
+  }
+
+
+
+
   return (
     <div className={styles.container}>
       <div className={styles.containerItems}>
@@ -19,12 +44,20 @@ function Login() {
 
         <div>
             <FiMail className={styles.iconoEmail}/>
-            <input className={styles.input} type="text" placeholder="Nombre de usuario" />
+            <input className={styles.input} type="text" placeholder="Nombre de usuario" name="username" value={login.username} onChange={handleChange}/>
         </div>
 
         <div>
-            <MdNoEncryptionGmailerrorred className={styles.iconoContraseña}/>
-            <input className={styles.input} type="password" placeholder="Nombre de usuario" />
+            <MdNoEncryptionGmailerrorred className={styles.iconoContraseña}/> 
+
+            {login.hasOwnProperty("password")  &&
+            <button className={styles.iconoVerContraseña} onClick={() => {setShow(!show)}} right > 
+              { show ? <FiEyeOff /> : <FiEye />}
+            </button>  
+            }
+            <input className={styles.input} type="password" placeholder="Nombre de usuario" name="password" value={login.password} onChange={handleChange}/>
+            
+           
         </div>
 
         <button className={styles.boton}>Ingresar</button>
