@@ -5,12 +5,14 @@ import {
   DELETE_BOOKS_DETAIL,
   GET_ALL_CATEGORIES,
   GET_ALL_BOOKS_BY_CATEGORY,
+  POST_BOOK,
 } from "../actions/index";
 
 const initialState = {
   allBooks: [],
   bookDetail: [],
   categories: [],
+  msg: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -49,6 +51,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allBooks: action.payload,
+      };
+
+    case POST_BOOK:
+      return {
+        ...state,
+        msg: [...action.payload],
       };
 
     default:
