@@ -12,7 +12,7 @@ body {
 .container{
     margin-top: 7rem;
     margin-left: 3rem;
-    height: 60%;
+    height: 70%;
     width: 90%; 
     display: flex;
     margin-bottom: 7rem;
@@ -23,7 +23,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 35%;
+    height: 100%;
     justify-content: space-around;
 }
 
@@ -43,13 +44,16 @@ body {
 .img2{
     height: 150px;
     width: 150px; 
+    margin-right: 1rem;
 }
 
 
 .conteiner2{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 60%; 
+    height: 100%;
 }
 
 
@@ -69,32 +73,39 @@ body {
     font-weight: bolder;
     font-size: 30px;
     justify-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;   
+    margin-top: 1.5rem;
 }
 
 
 .datos{
     font-family: Quicksand;
-    font-size: 20px;
-    margin-bottom: 1rem;
+    font-size: 15px;
+    margin-bottom: 0.5rem;
 } 
 
 .description{
+    margin-top: 0.5rem;
     font-family: Quicksand;
     font-size: 15px;
     margin-bottom: 1rem;
+    text-overflow: ellipsis;  
+    white-space: wrap;
+    overflow: hidden;
 }
 
 .compra{
     display: flex;
-    height: 35%;
+    height: 15%;
+    width: 100%;
     justify-content: space-between;
-    justify-items: center;
+    align-items: center;
 }
 
 
 .compra1{
     width: 40%;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -106,32 +117,42 @@ body {
     font-size: 45px;
 }
 
-
-.input{
-    font-family: Quicksand;
-    font-weight: bolder;
-    font-size: 20px;
+.stockItems{
+    display: flex;
 }
 
 .stock{
-    width: 60px;
-    margin: 1px solid black ;
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-right: 0.5rem;
+}
+
+.NumeroStock{
+    font-family: Quicksand;
+    font-size: 20px;
 }
 
 
 .carrito{
-    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
 
 .boton{
     margin-top: 2rem;
     width: 250px;
+    height: 60px;
     background-color: #01A86C;
     font-weight: 600;
     font-size: 20px;
     border-radius: 8px;
-    padding: 10px;
+
 }
 
 

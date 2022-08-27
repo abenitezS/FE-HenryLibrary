@@ -26,7 +26,7 @@ body {
     justify-content: start;
     box-shadow: 9px 10px 11px 10px #ABABAB;
     padding-top: 30px;
-    background-color: white
+    background-color: rgba(255, 255, 255, 0.964);
 }
 
 
@@ -47,11 +47,12 @@ body {
     border-radius: 30px;
     box-shadow: inset 0px 0px 12px 0px #888;
     text-align: center;
-    color: #ABABAB;
+    color: #5d5d5d;
     font-size: 13px;
     border: none;
     outline: none;
     background-color: #fff;
+    
 }
 
 
@@ -80,4 +81,10 @@ body {
     position: absolute;
     top: 10.5rem;
     right: 13.5rem;
+}
+
+.iconoVerContraseña{
+    position: absolute;
+    top: 10.5rem;
+    right: 3.5rem; 
 }

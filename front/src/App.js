@@ -5,7 +5,9 @@ import "./App.css";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Home from "./Components/Home/Home";
 import BookDetail from "./Components/BookDetail/BookDetail";
-
+import AboutUs from "./Components/Extras/AboutUs/AboutUs";
+import PoliticaPrivacidad from "./Components/Extras/PoliticaPrivacidad/PoliticaPrivacidad";
+import PoliticaDevolucion from "./Components/Extras/PoliticaDevolucion/PoliticaDevolucion";
 
 
 function App() {
@@ -33,6 +35,12 @@ function App() {
 
       {/*Ruta administrador*/}
       {/* <Route path={"/user/admin"} component={} /> */}
+
+
+      {/*Rutas Extras*/}
+      <Route path="/aboutUs" component={AboutUs} />
+      <Route path="/politicaPrivacidad" component={PoliticaPrivacidad} />
+      <Route path="/politicaDevolucion" component={PoliticaDevolucion} />
     </>
   );
 }
