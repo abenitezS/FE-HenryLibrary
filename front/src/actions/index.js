@@ -14,8 +14,6 @@ export const POST_BOOK = "POST_BOOK";
 export const SET_PAGE = "SET_PAGE";
 export const GET_BOOKS_COUNT = "GET_BOOKS_COUNT";
 
-
-
 export function getAllBooks() {
     return function (dispatch) {
         axios
@@ -119,17 +117,17 @@ export function setPage(page) {
 }
 
 export function getBooksCount() {
-  return function (dispatch) {
-      axios
-          .get(`/catalog/count/}`)
-          .then((response) => {
-              dispatch({
-                  type: GET_BOOKS_COUNT,
-                  payload: response.data,
-              });
-          })
-          .catch((error) => {
-              console.log("getBooksCount", error);
-          });
-  };
+    return function (dispatch) {
+        axios
+            .get(`/catalog/count/}`)
+            .then((response) => {
+                dispatch({
+                    type: GET_BOOKS_COUNT,
+                    payload: response.data,
+                });
+            })
+            .catch((error) => {
+                console.log("getBooksCount", error);
+            });
+    };
 }

@@ -7,6 +7,7 @@ import {
     GET_ALL_BOOKS_BY_CATEGORY,
     POST_BOOK,
     SET_PAGE,
+    GET_BOOKS_COUNT,
 } from "../actions/index";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
     categories: [],
     msg: [],
     page: 0,
+    cantBooks: 0,
 };
 
 function rootReducer(state = initialState, action) {
@@ -65,6 +67,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 page: action.payload,
+            };
+
+        case GET_BOOKS_COUNT:
+            return {
+                ...state,
+                cantBooks: action.payload,
             };
 
         default:
