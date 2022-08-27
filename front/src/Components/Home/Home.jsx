@@ -8,6 +8,7 @@ import NavBar2 from "../NavBar2/NavBar2.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Book from "../Book/Book.jsx";
 import CategoryFilter from "../CategoryFilter/CategoryFilter";
+import AuthorFilter from "../AuthorFilter/AuthorFilter";
 
 //CSS
 import styles from "./Home.module.css";
@@ -43,9 +44,9 @@ export default function Home() {
       </div>
 
       <div className={styles.cuerpo}>
-
         <div className={styles.filtro}>
           <CategoryFilter />
+          <AuthorFilter />
         </div>
 
         <div className={styles.cards}>
@@ -58,6 +59,7 @@ export default function Home() {
                 authors={b.authors}
                 image={b.image}
                 price={b.price}
+                stock={b.currentStock}
               />
             ))}
         </div>

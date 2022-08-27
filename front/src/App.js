@@ -9,6 +9,7 @@ import NewBook from './Components/NewBook/NewBook';
 
 
 
+
 function App() {
   return (
     <>
@@ -37,6 +38,12 @@ function App() {
 
       {/*Ruta administrador*/}
       {/* <Route path={"/user/admin"} component={} /> */}
+
+
+      {/*Rutas Extras*/}
+      <Route path="/aboutUs" component={AboutUs} />
+      <Route path="/politicaPrivacidad" component={PoliticaPrivacidad} />
+      <Route path="/politicaDevolucion" component={PoliticaDevolucion} />
     </>
   );
 }

@@ -1,8 +1,10 @@
 import { GET_ALL_BOOKS, GET_NAME_BOOKS, GET_BOOKS_ID, DELETE_BOOKS_DETAIL, POST_BOOK } from "../actions/index";
 
+
 const initialState = {
-    allBooks: [],
-    bookDetail: []
+  allBooks: [],
+  bookDetail: [],
+  categories: [],
 };
 
 function rootReducer(state = initialState, action) {
