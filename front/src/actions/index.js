@@ -9,6 +9,7 @@ export const GET_NAME_BOOKS = "GET_NAME_BOOKS";
 export const GET_BOOKS_ID = "GET_BOOKS_ID";
 export const DELETE_BOOKS_DETAIL = "DELETE_BOOKS_DETAIL";
 export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
+export const GET_ALL_BOOKS_BY_CATEGORY = "GET_ALL_BOOKS_BY_CATEGORY";
 
 export function getAllBooks() {
   return function (dispatch) {
@@ -78,6 +79,22 @@ export function getCategories() {
       })
       .catch((error) => {
         console.log("getCategories", error);
+      });
+  };
+}
+
+export function getBooksByCategory(idCategory) {
+  return function (dispatch) {
+    axios
+      .get(`/catalog/category/${idCategory}`)
+      .then((response) => {
+        dispatch({
+          type: GET_ALL_BOOKS_BY_CATEGORY,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getBooksByCategory", error);
       });
   };
 }
