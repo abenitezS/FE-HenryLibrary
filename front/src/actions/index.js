@@ -13,74 +13,70 @@ export const GET_ALL_BOOKS_BY_CATEGORY = "GET_ALL_BOOKS_BY_CATEGORY";
 
 export function getAllBooks() {
   return function (dispatch) {
-    axios
-      .get(`/catalog`)
-      .then((response) => {
+
+    axios.get(`/catalog`)
+      .then(response => {
         dispatch({
           type: "GET_ALL_BOOKS",
-          payload: response.data,
+          payload: response.data
         });
       })
-      .catch((error) => {
-        console.log("getAllBooks", error);
-      });
+      .catch(error => {
+        console.log("getAllBooks", error)
+      })
   };
 }
+
 
 export function getNameBooks(title) {
   return function (dispatch) {
-    axios
-      .get(`/catalog?title=${title}`)
-      .then((response) => {
+
+    axios.get(`/catalog?title=${title}`)
+      .then(response => {
         dispatch({
           type: "GET_NAME_BOOKS",
-          payload: response.data,
+          payload: response.data
         });
       })
-      .catch((error) => {
-        console.log("getNameBooks", error);
-      });
+      .catch(error => {
+        console.log("getNameBooks", error)
+      })
   };
 }
+
 
 export function getBooksId(id) {
   return function (dispatch) {
-    axios
-      .get(`/catalog/${id}`)
-      .then((response) => {
+
+    axios.get(`/catalog/${id}`)
+      .then(response => {
         dispatch({
           type: "GET_BOOKS_ID",
-          payload: response.data,
+          payload: response.data
         });
       })
-      .catch((error) => {
-        console.log("getBooksId", error);
-      });
+      .catch(error => {
+        console.log("getBooksId", error)
+      })
   };
 }
 
-export function deleteBookDetail(id) {
-  //--> Lo utilizo para desmontar el componente de detalle
+
+export function deleteBookDetail(id) {  //--> Lo utilizo para desmontar el componente de detalle
   return {
     type: "DELETE_BOOKS_DETAIL",
-    payload: id,
+    payload: id
   };
 }
 
-export function getCategories() {
+export function uploadBook(book) {
   return function (dispatch) {
-    axios
-      .get(`/categories`)
-      .then((response) => {
-        dispatch({
-          type: GET_ALL_CATEGORIES,
-          payload: response.data,
-        });
+    return axios.post(`http://localhost:3001/book`, book)
+      .then(({ data }) => {
+        dispatch({ type: POST_BOOK, payload: data });
       })
-      .catch((error) => {
-        console.log("getCategories", error);
-      });
-  };
+  }
+
 }
 
 export function getBooksByCategory(idCategory) {
