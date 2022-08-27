@@ -44,7 +44,6 @@ export default function Home() {
       </div>
 
       <div className={styles.cuerpo}>
-
         <div className={styles.filtro}>
           <CategoryFilter />
           <AuthorFilter />
@@ -60,6 +59,7 @@ export default function Home() {
                 authors={b.authors}
                 image={b.image}
                 price={b.price}
+                stock={b.currentStock}
               />
             ))}
         </div>
