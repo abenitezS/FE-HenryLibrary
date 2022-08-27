@@ -5,9 +5,9 @@ import "./App.css";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Home from "./Components/Home/Home";
 import BookDetail from "./Components/BookDetail/BookDetail";
-import AboutUs from "./Components/Extras/AboutUs/AboutUs";
-import PoliticaPrivacidad from "./Components/Extras/PoliticaPrivacidad/PoliticaPrivacidad";
-import PoliticaDevolucion from "./Components/Extras/PoliticaDevolucion/PoliticaDevolucion";
+import NewBook from './Components/NewBook/NewBook';
+
+
 
 
 function App() {
@@ -23,6 +23,9 @@ function App() {
 
       {/*Ruta Catalogo de Libros */}
       {/* <Route path={"/carrito"} component={} /> */}
+
+         {/*Ruta Creacion de Nuevo Libro */}
+      <Route path={"/nuevoLibro"} component={NewBook} />
 
       {/*Ruta Catalogo de Libros */}
       {/* <Route path={"/favoritos"} component={} /> */}

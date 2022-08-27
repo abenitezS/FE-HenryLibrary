@@ -1,0 +1,44 @@
+.containerFormu{
+    width: 40%;
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid #000000;
+    margin:1rem auto;
+    padding: 2rem;
+}
+.titleFormu{
+    /* margin: 1rem  auto; */
+    text-align: center;
+    font-size: 2rem;
+}
+
+.containerInputs{
+    /* border: 2px solid #000000; */
+    display: flex;
+    flex-direction: column;
+}
+.containerInput{
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.inputs{
+    border: 2px solid #000000;
+}
+
+.containerButtons{    
+    margin-top: 1rem;
+    display: flex;    
+    justify-content: space-around;
+}
+.button{
+    border: 2px solid #000000;
+    padding: 10px;
+}
+.danger{
+color:red
+}

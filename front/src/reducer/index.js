@@ -4,6 +4,7 @@ import {
   GET_BOOKS_ID,
   DELETE_BOOKS_DETAIL,
   GET_ALL_CATEGORIES,
+  GET_ALL_BOOKS_BY_CATEGORY,
 } from "../actions/index";
 
 const initialState = {
@@ -42,6 +43,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         categories: action.payload,
+      };
+
+    case GET_ALL_BOOKS_BY_CATEGORY:
+      return {
+        ...state,
+        allBooks: action.payload,
       };
 
     default:
