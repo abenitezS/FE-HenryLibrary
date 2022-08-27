@@ -72,21 +72,22 @@ export default function BookDetail() {
         <h4 className={styles.description}>{bookDetail.description}</h4>
       </div>
       
+
+
       <div className={styles.compra}>
+        <div className={styles.compra1}>
+             <h2 className={styles.precio}>$ {bookDetail.price}</h2>
 
-      <div className={styles.compra1}>
+             <div className={styles.stockItems}>
+                  <h6 className={styles.stock}>Stock:</h6>
+                  <h6 className={styles.NumeroStock}>{bookDetail.currentStock}</h6>
+             </div>
+        </div>
 
-         <h2 className={styles.precio}>$ {bookDetail.price}</h2>
 
-       <div>
-        <label className={styles.input} htmlFor="stock">Stock:</label>
-        <input className={styles.stock} type="text" name="stock"/>
-       </div>
-
+        <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
       </div>
 
-       <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
-      </div>
 
     </div>
 
