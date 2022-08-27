@@ -24,10 +24,10 @@ export default function BookDetail() {
 
   const bookDetail = useSelector((state) => state.bookDetail);
 
-  console.log(bookDetail)
+  console.log("bookDetail", bookDetail)
 
   useEffect(() => {
-    dispatch(getBooksId("bY3w0PZSzU8C"));
+    dispatch(getBooksId(id));
     console.log("el componente se monto");
 
     return () => {
@@ -45,21 +45,54 @@ export default function BookDetail() {
       <NavBar />
       <NavBar2 />
     
-    <div className="container">
-      <div>
-        {/* <img src={} alt="imagen del libro"/> */}
+    <div className={styles.container}>
+
+      <div className={styles.containerItems}>
+        <div >
+            <img  className={styles.img1} src={bookDetail.image} alt="imagen del libro"/>
+        </div>
+
+        <div className={styles.img}>
+            <img className={styles.img2} src={bookDetail.image} alt="imagen del libro"/>
+            <img className={styles.img2} src={bookDetail.image} alt="imagen del libro"/>
+            <img className={styles.img2} src={bookDetail.image} alt="imagen del libro"/>
+        </div>
       </div>
 
-      <div>
-        {/* <h2>{bookDetail.volumeInfo.title}</h2>
-        <h4>{bookDetail.volumeInfo.author}</h4> 
-        <h4>{bookDetail.volumeInfo.publisher}</h4>
-        <h4>{bookDetail.volumeInfo.publishedDate}</h4> 
-        <h4>{bookDetail.volumeInfo.description}</h4>
-        */}
+      
+
+    <div className={styles.conteiner2}>
+        
+      <div className={styles.info}>
+        <h2 className={styles.title}>{bookDetail.title}</h2>
+        {/* <h4>{bookDetail.author}</h4>  */}
+        {/* <h4>{bookDetail.publisher}</h4> */}
+        <h4 className={styles.datos}>Fecha de Publicacion: {bookDetail.publishedDate}</h4> 
+        <h4 className={styles.datos}>Rating: {bookDetail.rating}</h4> 
+        <h4 className={styles.description}>{bookDetail.description}</h4>
       </div>
+      
+      <div className={styles.compra}>
+
+      <div className={styles.compra1}>
+
+         <h2 className={styles.precio}>$ {bookDetail.price}</h2>
+
+       <div>
+        <label className={styles.input} htmlFor="stock">Stock:</label>
+        <input className={styles.stock} type="text" name="stock"/>
+       </div>
+
+      </div>
+
+       <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
+      </div>
+
     </div>
 
+    </div>
+      
+      <div className={styles.recomendados}>ACA VAN NUESTROS RECOMENDADOS </div>
       <Footer />
     </div>
   );

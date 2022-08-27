@@ -5,16 +5,145 @@ body {
 }
 
 
-
 .detail {
-    /* background-color: red; */
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+    height: 125vh; 
 }
 
 .container{
-    /* background-color: blue; */
-    height: 50%;
-    width: 90%;
+    margin-top: 7rem;
+    margin-left: 3rem;
+    height: 60%;
+    width: 90%; 
+    display: flex;
+    margin-bottom: 7rem;
+    justify-content: space-around;
+}
+
+.containerItems{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    justify-content: space-around;
+}
+
+.img1{
+    height: 300px;
+    width: 300px; 
+}
+
+ .img{
+    margin-top: 2rem;
+    align-items: center;
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.img2{
+    height: 150px;
+    width: 150px; 
+}
+
+
+.conteiner2{
+    display: flex;
+    flex-direction: column;
+    width: 60%; 
+}
+
+
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 80%;
+    padding-right: 5rem;
+}
+
+
+.title{
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 30px;
+    justify-items: center;
+    margin-bottom: 3rem;
+}
+
+
+.datos{
+    font-family: Quicksand;
+    font-size: 20px;
+    margin-bottom: 1rem;
+} 
+
+.description{
+    font-family: Quicksand;
+    font-size: 15px;
+    margin-bottom: 1rem;
+}
+
+.compra{
+    display: flex;
+    height: 35%;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+
+.compra1{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.precio{
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 45px;
+}
+
+
+.input{
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.stock{
+    width: 60px;
+    margin: 1px solid black ;
+}
+
+
+.carrito{
+    width: 45%;
+}
+
+
+.boton{
+    margin-top: 2rem;
+    width: 250px;
+    background-color: #01A86C;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+.boton:hover{
+    background-color: #11875c;
+}
+
+
+.recomendados{
+    margin-top: 3rem;
+    width: 80%;
+    height: 20%;
+    justify-content: center;
+    border: 2px solid black;
 }

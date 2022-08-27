@@ -16,24 +16,29 @@ import styles from "./SearchBar.module.css"
 
 export default function SerachBar() {
 
+
   const history = useHistory();
   const dispatch = useDispatch();
-  const [search, setSearch] = useState("");
+  const [title, setTitle] = useState("");
 
 
 
 
 
   const handleChange = (event) => {
-    setSearch(event.target.value.trim());
+    setTitle(event.target.value.trim());
   };
+
+
 
 
   const handledSubmit = (event) => {
     event.preventDefault();
-    dispatch(getNameBooks(search))
-    setSearch("")
-    history.push("/home");
+
+
+    history.push("/home")
+    dispatch(getNameBooks(title))
+    setTitle("")
   };
 
 
