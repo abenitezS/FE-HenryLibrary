@@ -41,9 +41,8 @@ export default function Footer() {
             //   color="#01A86C"
             background="fff"
             fontFamily="Quicksand"
-            _placeholder={{ color: "#01A86C", fontFamily: "Quicksand" }}
-            onChange={handleChange}
-            value={author.name}
+            _placeholder={{ color: "#a3a1a1", fontFamily: "Quicksand" }}
+            onChange={(event) => setAuthor(event.currentTarget.value)}
           />
           <List spacing={1} backgroundColor="white">
             {authors.map((author) => (
