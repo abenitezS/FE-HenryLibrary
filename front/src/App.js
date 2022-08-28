@@ -28,7 +28,7 @@ function App() {
       {/* <Route path={"/carrito"} component={} /> */}
 
          {/*Ruta Creacion de Nuevo Libro */}
-      <Route path={"/nuevoLibro"} component={NewBook} />
+      <Route path={"/nuevo-libro"} component={NewBook} />
 
       {/*Ruta Catalogo de Libros */}
       {/* <Route path={"/favoritos"} component={} /> */}
@@ -44,9 +44,9 @@ function App() {
 
 
       {/*Rutas Extras*/}
-      <Route path="/aboutUs" component={AboutUs} />
-      <Route path="/politicaPrivacidad" component={PoliticaPrivacidad} />
-      <Route path="/politicaDevolucion" component={PoliticaDevolucion} />
+      <Route path="/about-us" component={AboutUs} />
+      <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
+      <Route path="/politica-devolucion" component={PoliticaDevolucion} />
 
       {/*Rutas Error*/}
       <Route path="*" component={PageError} />
