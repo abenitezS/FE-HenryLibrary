@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBooksId, deleteBookDetail } from "../../actions";
+import { getBooksId, deleteBookDetail, bannedBook, deleteBook } from "../../actions";
 import { useParams } from "react-router-dom";
 
 //COMPONENTES
@@ -24,7 +24,9 @@ export default function BookDetail() {
 
   const bookDetail = useSelector((state) => state.bookDetail);
 
-  console.log("bookDetail", bookDetail)
+  const [disabled, setDisabled] = useState(true)
+
+ 
 
   useEffect(() => {
     dispatch(getBooksId(id));
@@ -39,6 +41,21 @@ export default function BookDetail() {
 
 
 
+  function handleClickBorrar(){
+    if (bookDetail.isActive === true){
+      setDisabled(!disabled)
+    }
+  }
+
+  dispatch(bannedBook)
+  // console.log(disabled)
+  
+
+
+
+
+
+  
 
   return (
     <div className={styles.detail}>
@@ -65,10 +82,25 @@ export default function BookDetail() {
         
       <div className={styles.info}>
         <h2 className={styles.title}>{bookDetail.title}</h2>
-        {/* <h4>{bookDetail.author}</h4>  */}
-        {/* <h4>{bookDetail.publisher}</h4> */}
+
+
+
+        {bookDetail.categories && bookDetail.categories.map( c => 
+          <h2 className={styles.datos} key={id}>
+            Genero: {c.name}
+          </h2>                                                
+        )}
+
+        {bookDetail.authors && bookDetail.authors.map ((a) =>  (
+            <h4 className={styles.datos} key={a.id}>
+                  Autores: {a.name}
+            </h4>                                                
+        ) )} 
+
+        <h4 className={styles.datos}>Editorial: {bookDetail.publisher && bookDetail.publisher.name}</h4>
         <h4 className={styles.datos}>Fecha de Publicacion: {bookDetail.publishedDate}</h4> 
-        <h4 className={styles.datos}>Rating: {bookDetail.rating}</h4> 
+        <h2 className={styles.datos}>Numero de paginas: {bookDetail.pageCount}</h2>
+        <h4 className={styles.datos}>Rating: {bookDetail.rating} puntos</h4> 
         <h4 className={styles.description}>{bookDetail.description}</h4>
       </div>
       
@@ -84,8 +116,13 @@ export default function BookDetail() {
              </div>
         </div>
 
-
-        <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
+        <div className={styles.botones}>
+           <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
+           <div className={styles.borrados}>
+               <button onClick={handleClickBorrar} disabled={disabled} className={styles.botonBorradoLogico}>{disabled?"ACTIVO":"INACTIVO"}</button>
+               <button onClick={deleteBook} className={styles.botonBorrado}>BORRAR</button>
+           </div>
+        </div>
       </div>
 
 
@@ -98,3 +135,13 @@ export default function BookDetail() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
