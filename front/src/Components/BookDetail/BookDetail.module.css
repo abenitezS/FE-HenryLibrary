@@ -184,10 +184,13 @@ body {
     margin-left: 2rem;
 }
 
-.botonBorradoLogico:disabled{
+/* disable --> true */
+.botonBorradoLogico:disabled{  
     border: 2px solid red;
     color: red;
 }
+
+
 
 .botonBorrado{
     margin-top: 1rem;
@@ -201,7 +204,9 @@ body {
 }
 
 
-
+.botonBorrado:disabled{
+    background-color: #7d7d7d;
+}
 
 .recomendados{
     margin-top: 3rem;
