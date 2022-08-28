@@ -13,6 +13,10 @@ export const GET_ALL_BOOKS_BY_CATEGORY = "GET_ALL_BOOKS_BY_CATEGORY";
 export const POST_BOOK = "POST_BOOK";
 export const SET_PAGE = "SET_PAGE";
 export const GET_BOOKS_COUNT = "GET_BOOKS_COUNT";
+export const BANNED_BOOK = "BANNED_BOOK"
+export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK"
+
+
 
 export function getAllBooks() {
     return function (dispatch) {
@@ -131,4 +135,37 @@ export function getBooksCount() {
                 console.log("getBooksCount", error);
             });
     };
+}
+
+
+export function bannedBook(id) {
+  return function (dispatch) {
+      axios
+          .put(`/catalog/banned/${id}`)
+          .then((response) => {
+              dispatch({
+                  type: "BANNED_BOOK",
+                  payload: response.data,
+              });
+          })
+          .catch((error) => {
+              console.log("bannedBook", error);
+          });
+  };
+}
+
+export function deleteLogicBook(id) {
+  return function (dispatch) {
+      axios
+          .put(`/catalog/delete/${id}`)
+          .then((response) => {
+              dispatch({
+                  type: "DELETE_LOGICO_BOOK",
+                  payload: response.data,
+              });
+          })
+          .catch((error) => {
+              console.log("deleteLogicBook", error);
+          });
+  };
 }
