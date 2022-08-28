@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Heading, Input, Stack, List, ListItem } from "@chakra-ui/react";
-import { getBooksByAuthor, getAuthorByName } from "../../actions";
+import { getBooksByAuthor, getAuthorByName, getAllBooks } from "../../actions";
 
 export default function Footer() {
   const dispatch = useDispatch(),
@@ -11,6 +11,7 @@ export default function Footer() {
   const handleChange = (event) => {
     setAuthor({ ...author, name: event.target.value });
     dispatch(getAuthorByName(event.target.value));
+    !event.target.value.length && dispatch(getAllBooks());
   };
 
   const handledClick = (event) => {
@@ -42,7 +43,8 @@ export default function Footer() {
             background="fff"
             fontFamily="Quicksand"
             _placeholder={{ color: "#a3a1a1", fontFamily: "Quicksand" }}
-            onChange={(event) => setAuthor(event.currentTarget.value)}
+            onChange={handleChange}
+            value={author.name}
           />
           <List spacing={1} backgroundColor="white">
             {authors.map((author) => (
