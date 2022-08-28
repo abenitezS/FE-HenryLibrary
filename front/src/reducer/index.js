@@ -22,7 +22,7 @@ const initialState = {
     msg: [],
     page: 0,
     cantBooks: 0,
-    status: "checking",
+    status: "not-authenticated",
     uid: null,
     email: null,
     displayName: null,
