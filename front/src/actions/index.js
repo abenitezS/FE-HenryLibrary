@@ -124,7 +124,6 @@ export function getBooksCount() {
     axios
       .get(`/catalog/contar/1`)
       .then((response) => {
-        console.log(response.data);
         dispatch({
           type: GET_BOOKS_COUNT,
           payload: response.data,

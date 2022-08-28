@@ -23,55 +23,34 @@ export default function Paginated() {
         dispatch(getAllBooks(page));
     }
 
-    function paginate(array, pageActual, cantPaginas) {
+    function paginate(pageActual, cantPaginas) {
         let start;
         let end;
-        // if (pageActual - 2 >= 0){
-        //     start = pageActual - 2;
-        //     // console.log("op1")
-        // } 
-        // else if (pageActual - 1 >= 0){
-        //     start = pageActual - 1;
-        //     // console.log("op2")
-        // } 
-        // else{
-        //     start = pageActual;
-        //     // console.log("op3")
-        // } 
+        let numeros = [];
 
-        // if (pageActual + 5 <= cantPaginas){
-        //     end = pageActual + 5;
-        //     // console.log("op4")
-        // } 
-        // else if (pageActual + 4 <= cantPaginas){
-        //     end = pageActual + 4;
-        //     // console.log("op5")
-        // } 
-        // else {
-        //     end = cantPaginas;
-        //     // console.log("op6")
-        // } 
-        // if (start + 5 < end) end = start + 5;
+        if (pageActual - 2 >= 0) start = actualPage - 2
+        else if (pageActual - 1 >= 0) start = actualPage - 1
+        else start = actualPage;
 
-        // console.log(start, end, actualPage);
-        start = actualPage;
-        if (pageActual -1 >= 0) start = actualPage - 1;
-        if (pageActual -2 >= 0) start = actualPage - 2;
+        end = start + 4 <= cantPaginas ? start + 4 : cantPaginas;
 
-        end = cantPaginas;
-        if (pageActual -1 >= 0) start = actualPage - 1;
-        if (pageActual -2 >= 0) start = actualPage - 2;
+        if (end - start !== 4) {
+            let diferencia = end === actualPage ? 2 : end - actualPage;
+            start = start - diferencia < 0 ? 0 : start -= diferencia;
+        }
 
-        
-        return array.slice(pageActual-2<0, end);
+        for (let i = start; i <= end; i++) {
+            numeros.push(i);
+        }
+
+        return numeros;
     }
 
     for (let i = 0; i <= cantPaginas; i++) {
         pageNumbers.push(i);
     }
 
-    let paginasVisibles = paginate(pageNumbers, actualPage, cantPaginas);
-    
+    let paginasVisibles = paginate(actualPage, cantPaginas);
 
     return (
         <div>
@@ -92,8 +71,8 @@ export default function Paginated() {
                                 colorScheme="teal"
                                 size="xs"
                                 onClick={() => handleChangePage(p)}
-                                disabled={i === actualPage}
-                                key={i}
+                                disabled={p === actualPage}
+                                key={p}
                             >
                                 {p + 1}
                             </Button>
