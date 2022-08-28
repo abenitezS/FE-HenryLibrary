@@ -1,21 +1,28 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Heading, Input, Stack } from "@chakra-ui/react";
-import { getBooksByAuthor } from "../../actions";
-
-//CSS
-// import style from "./CategoryFilter.module.css";
-
-//REACT ICONS
+import { useDispatch, useSelector } from "react-redux";
+import { Heading, Input, Stack, List, ListItem } from "@chakra-ui/react";
+import { getBooksByAuthor, getAuthorByName } from "../../actions";
 
 export default function Footer() {
   const dispatch = useDispatch(),
-    [author, setAuthor] = useState("");
+    [author, setAuthor] = useState({ id: 0, name: "" }),
+    authors = useSelector((state) => state.authors);
+
+  const handleChange = (event) => {
+    setAuthor({ ...author, name: event.target.value });
+    dispatch(getAuthorByName(event.target.value));
+  };
+
+  const handledClick = (event) => {
+    setAuthor({ id: Number(event.target.id), name: event.target.textContent });
+    dispatch(getBooksByAuthor(Number(event.target.id)));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(getBooksByAuthor(Number(author)));
+    dispatch(getBooksByAuthor(author.id));
   };
+
   return (
     <>
       <Stack pt="10%" spacing={3}>
@@ -35,8 +42,23 @@ export default function Footer() {
             background="fff"
             fontFamily="Quicksand"
             _placeholder={{ color: "#01A86C", fontFamily: "Quicksand" }}
-            onChange={(event) => setAuthor(event.currentTarget.value)}
+            onChange={handleChange}
+            value={author.name}
           />
+          <List spacing={1} backgroundColor="white">
+            {authors.map((author) => (
+              <ListItem
+                key={author.id}
+                id={author.id}
+                value={author.name}
+                onClick={handledClick}
+                _hover={{ cursor: "pointer" }}
+                fontFamily="Quicksand"
+              >
+                {author.name}
+              </ListItem>
+            ))}
+          </List>
         </form>
       </Stack>
     </>
