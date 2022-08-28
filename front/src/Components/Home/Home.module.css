@@ -8,7 +8,7 @@ body{
 .home{
     display: flex;
     flex-direction: column; 
-    height: 950vh;
+    height: 100%;
 }
 
 .banner{
@@ -26,16 +26,15 @@ body{
 }
 
 .paginado{
-    background-color: #F2F1EF;
-    width: 10%;
+    width: 15%;
     height: 3rem;
-    margin-left: 76.5rem;
+    margin-left: 70rem;
     margin-top: 2rem;
 }
 
 .cuerpo{
     width: 85%;
-    height: 900vh;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
@@ -46,11 +45,11 @@ body{
 .filtro{
     background-color: #F2F1EF;
     width: 15%;
-    height: 30rem;
+    height: 45rem;
 }
 
 .cards{
-    width: 80%;
+    width: 75%;
     display: flex;
     flex-wrap: wrap ;
     justify-content: space-around;
