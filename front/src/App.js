@@ -15,42 +15,41 @@ import PageError from "./Components/PageError/PageError.jsx"
 function App() {
   return (
     <>
-      {/*Se agregan las rutas para el primer spint solo queda importar los componentes y pasarlos a cada ruta, puede ser necesario realizar cambios, ir descomentando una a una para que se puedan renderizar bien los componentes */}
+		{/*Se agregan las rutas para el primer spint solo queda importar los componentes y pasarlos a cada ruta, puede ser necesario realizar cambios, ir descomentando una a una para que se puedan renderizar bien los componentes */}
 
-      <Switch>
-      {/*Ruta Landing Page */}
-      <Route exact path="/" component={LandingPage} />
+		<Switch>
+			{/*Ruta Landing Page */}
+			<Route exact path="/" component={LandingPage} />
 
-      {/*Ruta Catalogo de Libros */}
-      <Route path="/home" component={Home} />
+			{/*Ruta Catalogo de Libros */}
+			<Route path="/home" component={Home} />
 
-      {/*Ruta Catalogo de Libros */}
-      {/* <Route path={"/carrito"} component={} /> */}
+			{/*Ruta Catalogo de Libros */}
+			{/* <Route path={"/carrito"} component={} /> */}
 
-         {/*Ruta Creacion de Nuevo Libro */}
-      <Route path={"/nuevo-libro"} component={NewBook} />
+			{/*Ruta Creacion de Nuevo Libro */}
+			<Route path={"/agregar-libro"} component={NewBook} />
 
-      {/*Ruta Catalogo de Libros */}
-      {/* <Route path={"/favoritos"} component={} /> */}
+			{/*Ruta Catalogo de Libros */}
+			{/* <Route path={"/favoritos"} component={} /> */}
 
-      {/*Ruta Detalles de Libro */}
-      <Route path="/catalog/detail/:id" component={BookDetail} />
+			{/*Ruta Detalles de Libro */}
+			<Route path="/catalog/detail/:id" component={BookDetail} />
 
-      {/*Ruta Inicio de Sesion */}
-      {/* <Route path={"/login"} component={} /> */}
+			{/*Ruta Inicio de Sesion */}
+			{/* <Route path={"/login"} component={} /> */}
 
-      {/*Ruta administrador*/}
-      {/* <Route path={"/user/admin"} component={} /> */}
+			{/*Ruta administrador*/}
+			{/* <Route path={"/user/admin"} component={} /> */}
 
+			{/*Rutas Extras*/}
+			<Route path="/about-us" component={AboutUs} />
+			<Route path="/politica-privacidad" component={PoliticaPrivacidad} />
+			<Route path="/politica-devolucion" component={PoliticaDevolucion} />
 
-      {/*Rutas Extras*/}
-      <Route path="/about-us" component={AboutUs} />
-      <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
-      <Route path="/politica-devolucion" component={PoliticaDevolucion} />
-
-      {/*Rutas Error*/}
-      <Route path="*" component={PageError} />
-      </Switch>
+			{/*Rutas Error*/}
+			<Route path="*" component={PageError} />
+		</Switch>
 
     </>
   );
