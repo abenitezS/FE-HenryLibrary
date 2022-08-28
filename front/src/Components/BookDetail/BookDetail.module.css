@@ -74,13 +74,13 @@ body {
     font-size: 30px;
     justify-items: center;
     margin-bottom: 1rem;   
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 
 .datos{
     font-family: Quicksand;
-    font-size: 15px;
+    font-size: 13px;
     margin-bottom: 0.5rem;
 } 
 
@@ -96,7 +96,7 @@ body {
 
 .compra{
     display: flex;
-    height: 15%;
+    height: 20%;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -114,7 +114,7 @@ body {
 .precio{
     font-family: Quicksand;
     font-weight: bolder;
-    font-size: 45px;
+    font-size: 43px;
 }
 
 .stockItems{
@@ -133,32 +133,74 @@ body {
     font-size: 20px;
 }
 
-
-.carrito{
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
+.botones{
     height: 100%;
-    justify-content: center;
-    margin-bottom: 2rem;
+    width: 60%;
+    display: flex;
 }
 
 
+.carrito{
+    height: 100%;
+    width: 50%;
+    padding-left: 1rem;
+}
+
 .boton{
     margin-top: 2rem;
-    width: 250px;
+    width: 200px;
     height: 60px;
     background-color: #01A86C;
     font-weight: 600;
     font-size: 20px;
     border-radius: 8px;
-
 }
 
 
 .boton:hover{
     background-color: #11875c;
 }
+
+
+
+.borrados{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.botonBorradoLogico{
+    margin-top: 1rem;
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: 2px solid #01A86C;
+    font-weight: bolder;
+    font-size: 13px;
+    border-radius: 8px;
+    color: #01A86C;
+    margin-left: 2rem;
+}
+
+.botonBorradoLogico:disabled{
+    border: 2px solid red;
+    color: red;
+}
+
+.botonBorrado{
+    margin-top: 1rem;
+    width: 100px;
+    height: 40px;
+    background-color: red;
+    font-weight: bolder;
+    font-size: 13px;
+    border-radius: 8px;
+    margin-left: 2rem;
+}
+
+
 
 
 .recomendados{

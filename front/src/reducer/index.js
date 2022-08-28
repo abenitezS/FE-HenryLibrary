@@ -8,6 +8,8 @@ import {
     POST_BOOK,
     SET_PAGE,
     GET_BOOKS_COUNT,
+    BANNED_BOOK,
+    DELETE_LOGICO_BOOK
 } from "../actions/index";
 
 const initialState = {
@@ -74,6 +76,20 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 cantBooks: action.payload,
             };
+
+        case BANNED_BOOK:
+          return{
+            ...state,
+            
+          };
+
+          case DELETE_LOGICO_BOOK:
+            return{
+              ...state,
+              
+            };
+
+
 
         default:
             return state;
