@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Heading, Input, Stack } from "@chakra-ui/react";
+import { getBooksByAuthor } from "../../actions";
 
 //CSS
 // import style from "./CategoryFilter.module.css";
@@ -7,11 +9,12 @@ import { Heading, Input, Stack } from "@chakra-ui/react";
 //REACT ICONS
 
 export default function Footer() {
-  const [author, setAuthor] = useState("");
+  const dispatch = useDispatch(),
+    [author, setAuthor] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(author);
+    dispatch(getBooksByAuthor(Number(author)));
   };
   return (
     <>
