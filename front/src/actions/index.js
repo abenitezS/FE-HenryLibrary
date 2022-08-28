@@ -185,7 +185,6 @@ export function getBooksByAuthor(idAutor) {
 }
 
 export function getAuthorByName(name) {
-  console.log(name);
   return function (dispatch) {
     axios
       .get(`/authors?name=${name}`)
