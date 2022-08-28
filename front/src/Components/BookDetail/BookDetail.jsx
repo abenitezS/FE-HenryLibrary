@@ -44,9 +44,10 @@ export default function BookDetail() {
   function handleClickBorrar(){
     if (bookDetail.isActive === true){
       setDisabled(!disabled)
+
     }
   }
-
+  
   dispatch(bannedBook)
   // console.log(disabled)
   
