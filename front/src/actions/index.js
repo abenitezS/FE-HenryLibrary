@@ -195,6 +195,10 @@ export function getAuthorByName(name) {
         });
       })
       .catch((error) => {
+        dispatch({
+          type: SET_AUTHOR_BY_NAME,
+          payload: [],
+        });
         console.log("getAuthorByName", error);
       });
   };
