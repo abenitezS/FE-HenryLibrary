@@ -9,7 +9,7 @@ import {
     SET_PAGE,
     GET_BOOKS_COUNT,
     BANNED_BOOK,
-    DELETE_BOOK
+    DELETE_LOGICO_BOOK
 } from "../actions/index";
 
 const initialState = {
@@ -83,14 +83,14 @@ function rootReducer(state = initialState, action) {
             
           };
 
-          case DELETE_BOOK:
+          case DELETE_LOGICO_BOOK:
             return{
               ...state,
               
             };
 
 
-            
+
         default:
             return state;
     }

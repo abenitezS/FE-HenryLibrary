@@ -176,17 +176,17 @@ body {
     width: 100px;
     height: 40px;
     background-color: white;
-    border: 2px solid red;
+    border: 2px solid #01A86C;
     font-weight: bolder;
     font-size: 13px;
     border-radius: 8px;
-    color: red;
+    color: #01A86C;
     margin-left: 2rem;
 }
 
 .botonBorradoLogico:disabled{
-    border: 2px solid #01A86C;
-    color: #01A86C;
+    border: 2px solid red;
+    color: red;
 }
 
 .botonBorrado{

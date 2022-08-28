@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBooksId, deleteBookDetail, bannedBook, deleteBook } from "../../actions";
+import { getBooksId, deleteBookDetail, bannedBook, deleteLogicBook } from "../../actions";
 import { useParams } from "react-router-dom";
 
 //COMPONENTES
@@ -24,7 +24,7 @@ export default function BookDetail() {
 
   const bookDetail = useSelector((state) => state.bookDetail);
 
-  const [disabled, setDisabled] = useState(true)
+  const [disabled, setDisabled] = useState(false)  //true -> boton no anda -> disable
 
  
 
@@ -41,16 +41,21 @@ export default function BookDetail() {
 
 
 
-  function handleClickBorrar(){
+  function handleClickBorrar(id){
+
     if (bookDetail.isActive === true){
       setDisabled(!disabled)
-
+    }else{
+      setDisabled(!disabled)
     }
+    dispatch(deleteLogicBook(id))
+  
   }
   
-  dispatch(bannedBook)
-  // console.log(disabled)
-  
+  // dispatch(bannedBook)
+  console.log("disabled",disabled)
+  console.log("isActive",bookDetail.isActive)
+  console.log("bookDetail",bookDetail)
 
 
 
@@ -120,8 +125,8 @@ export default function BookDetail() {
         <div className={styles.botones}>
            <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
            <div className={styles.borrados}>
-               <button onClick={handleClickBorrar} disabled={disabled} className={styles.botonBorradoLogico}>{disabled?"ACTIVO":"INACTIVO"}</button>
-               <button onClick={deleteBook} className={styles.botonBorrado}>BORRAR</button>
+               <button onClick={ () => {handleClickBorrar(bookDetail.id)}} disabled={disabled} className={styles.botonBorradoLogico}>{disabled?"INACTIVO":"ACTIVO"}</button>
+               <button onClick={bannedBook} className={styles.botonBorrado}>BORRAR</button>
            </div>
         </div>
       </div>

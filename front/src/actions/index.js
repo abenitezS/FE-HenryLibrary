@@ -14,7 +14,7 @@ export const POST_BOOK = "POST_BOOK";
 export const SET_PAGE = "SET_PAGE";
 export const GET_BOOKS_COUNT = "GET_BOOKS_COUNT";
 export const BANNED_BOOK = "BANNED_BOOK"
-export const DELETE_BOOK = "DELETE_BOOK"
+export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK"
 
 
 
@@ -141,7 +141,7 @@ export function getBooksCount() {
 export function bannedBook(id) {
   return function (dispatch) {
       axios
-          .get(`/catalog/${id}`)
+          .put(`/catalog/banned/${id}`)
           .then((response) => {
               dispatch({
                   type: "BANNED_BOOK",
@@ -154,18 +154,18 @@ export function bannedBook(id) {
   };
 }
 
-export function deleteBook(id) {
+export function deleteLogicBook(id) {
   return function (dispatch) {
       axios
-          .get(`/catalog/${id}`)
+          .put(`/catalog/delete/${id}`)
           .then((response) => {
               dispatch({
-                  type: "DELETE_BOOK",
+                  type: "DELETE_LOGICO_BOOK",
                   payload: response.data,
               });
           })
           .catch((error) => {
-              console.log("bannedBook", error);
+              console.log("deleteLogicBook", error);
           });
   };
 }
