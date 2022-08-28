@@ -34,7 +34,7 @@ export default function Footer() {
             //   color="#01A86C"
             background="fff"
             fontFamily="Quicksand"
-            _placeholder={{ color: "#01A86C", fontFamily: "Quicksand" }}
+            _placeholder={{ color: "#a3a1a1", fontFamily: "Quicksand" }}
             onChange={(event) => setAuthor(event.currentTarget.value)}
           />
         </form>
