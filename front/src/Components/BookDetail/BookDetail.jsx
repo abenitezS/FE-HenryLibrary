@@ -24,12 +24,27 @@ export default function BookDetail() {
 
   const bookDetail = useSelector((state) => state.bookDetail);
 
-  const [disabled, setDisabled] = useState(false)  //true -> boton no anda -> disable
+  const [disabled, setDisabled] = useState(false)  //true -> boton no anda 
+                                                   //false -> boton anda
 
- 
+  const [disabledBanned, setDisabledBanned] = useState(false)
+
 
   useEffect(() => {
     dispatch(getBooksId(id));
+
+    if (bookDetail.isActive === false  && bookDetail.isBanned === true ){
+      setDisabled(true);
+      setDisabledBanned(false)
+    }else if (bookDetail.isActive === true && bookDetail.isBanned === false){
+      setDisabled(false);
+      setDisabledBanned(true)
+    } else if (bookDetail.isBanned === false && bookDetail.isBanned === false){
+      setDisabledBanned(true)
+    }else if (bookDetail.isBanned === true && bookDetail.isBanned === true){
+      setDisabledBanned(false)
+    }
+  
     console.log("el componente se monto");
 
     return () => {
@@ -41,20 +56,34 @@ export default function BookDetail() {
 
 
 
-  function handleClickBorrar(id){
+  function handleClickDeleteLogic(id){
 
-    if (bookDetail.isActive === true){
-      setDisabled(!disabled)
-    }else{
-      setDisabled(!disabled)
+    if (bookDetail.isActive === false){
+      setDisabled(true)
+    }else if (bookDetail.isActive === true){
+      setDisabled(false)
     }
     dispatch(deleteLogicBook(id))
+  
+  }
+
+
+  
+  function handleClickBanner(id){
+
+    if (bookDetail.isBanned === false){
+      setDisabledBanned(true)
+    }else if (bookDetail.isBanned === true){
+      setDisabledBanned(false)
+    }
+    dispatch(bannedBook(id))
   
   }
   
   // dispatch(bannedBook)
   console.log("disabled",disabled)
   console.log("isActive",bookDetail.isActive)
+  console.log("isBanned",bookDetail.isBanned)
   console.log("bookDetail",bookDetail)
 
 
@@ -125,8 +154,8 @@ export default function BookDetail() {
         <div className={styles.botones}>
            <div className={styles.carrito}><button className={styles.boton}>Agregar al carrito</button></div>
            <div className={styles.borrados}>
-               <button onClick={ () => {handleClickBorrar(bookDetail.id)}} disabled={disabled} className={styles.botonBorradoLogico}>{disabled?"INACTIVO":"ACTIVO"}</button>
-               <button onClick={bannedBook} className={styles.botonBorrado}>BORRAR</button>
+               <button onClick={ () => {handleClickDeleteLogic(bookDetail.id)}} disabled={disabled} className={styles.botonBorradoLogico}>{disabled?"INACTIVO":"ACTIVO"}</button>
+               <button onClick={ () => {handleClickBanner(bookDetail.id)}}  disabled={disabledBanned} className={styles.botonBorrado}>BORRAR</button>
            </div>
         </div>
       </div>
