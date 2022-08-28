@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllBooks } from "../../actions/index.js";
 
@@ -19,9 +20,12 @@ export default function Home() {
   const dispatch = useDispatch();
   const allBooks = useSelector((state) => state.allBooks);
 
+  const location = useLocation();
+  const search = location.state ? location.state.search : null;
+
   useEffect(() => {
-    dispatch(getAllBooks());
-  }, [dispatch]);
+    !search && dispatch(getAllBooks());
+  }, [dispatch, search]);
 
   console.log("allBooks", allBooks);
 
