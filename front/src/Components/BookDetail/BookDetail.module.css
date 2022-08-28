@@ -193,7 +193,7 @@ body {
 }
 
 /* disable --> true */
-.botonBorradoLogico:disabled{  
+.botonBorradoLogicoDes{  
     border: 2px solid red;
     color: red;
 }
