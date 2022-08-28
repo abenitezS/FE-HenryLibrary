@@ -1,0 +1,9 @@
+.Btn {
+    color: green;
+    font-size: 40px;
+}
+
+.BtnDisabled {
+    color: gray;
+    font-size: 40px;
+}
