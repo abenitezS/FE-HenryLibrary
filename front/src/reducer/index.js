@@ -25,70 +25,72 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  switch (action.type) {
-    case GET_ALL_BOOKS:
-      return {
-        ...state,
-        allBooks: action.payload,
-      };
+    switch (action.type) {
+        case GET_ALL_BOOKS:
+            return {
+                ...state,
+                allBooks: action.payload,
+            };
 
-    case GET_NAME_BOOKS:
-      return {
-        ...state,
-        allBooks: action.payload,
-      };
+        case GET_NAME_BOOKS:
+            return {
+                ...state,
+                allBooks: action.payload,
+            };
 
-    case GET_BOOKS_ID:
-      return {
-        ...state,
-        bookDetail: action.payload,
-      };
+        case GET_BOOKS_ID:
+            return {
+                ...state,
+                bookDetail: action.payload,
+            };
 
-    case DELETE_BOOKS_DETAIL: //Limpia el componente --> useEffect
-      return {
-        ...state,
-        bookDetail: [],
-      };
+        case DELETE_BOOKS_DETAIL: //Limpia el componente --> useEffect
+            return {
+                ...state,
+                bookDetail: [],
+            };
 
-    case GET_ALL_CATEGORIES:
-      return {
-        ...state,
-        categories: action.payload,
-      };
+        case GET_ALL_CATEGORIES:
+            return {
+                ...state,
+                categories: action.payload,
+            };
 
-    case GET_ALL_BOOKS_BY_CATEGORY:
-      return {
-        ...state,
-        allBooks: action.payload,
-      };
+        case GET_ALL_BOOKS_BY_CATEGORY:
+            return {
+                ...state,
+                allBooks: action.payload,
+            };
 
-    case POST_BOOK:
-      return {
-        ...state,
-        msg: [...action.payload],
-      };
+        case POST_BOOK:
+            return {
+                ...state,
+                msg: [...action.payload],
+            };
 
-    case SET_PAGE:
-      return {
-        ...state,
-        page: action.payload,
-      };
+        case SET_PAGE:
+            return {
+                ...state,
+                page: action.payload,
+            };
 
-    case GET_BOOKS_COUNT:
-      return {
-        ...state,
-        cantBooks: action.payload,
-      };
+        case GET_BOOKS_COUNT:
+            return {
+                ...state,
+                cantBooks: action.payload,
+            };
 
-    case BANNED_BOOK:
-      return {
-        ...state,
-      };
+        case BANNED_BOOK:
+            return {
+                ...state,
+            };
 
-    case DELETE_LOGICO_BOOK:
-      return {
-        ...state,
-      };
+        case DELETE_LOGICO_BOOK:
+            return {
+                ...state,
+                allBooks: [...state.allBooks, action.payload],
+                bookDetail: action.payload,
+            };
 
     case SET_ALL_BOOKS_BY_AUTHOR:
       return {
