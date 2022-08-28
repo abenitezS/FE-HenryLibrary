@@ -18,10 +18,10 @@ export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK"
 
 
 
-export function getAllBooks() {
+export function getAllBooks(pagina=0, items=10) {
     return function (dispatch) {
         axios
-            .get(`/catalog`)
+            .get(`/catalog?pagina=${pagina}&items=${items}`)
             .then((response) => {
                 dispatch({
                     type: "GET_ALL_BOOKS",
