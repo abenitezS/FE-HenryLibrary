@@ -7,46 +7,30 @@ import { useHistory } from "react-router-dom";
 import { RiSearch2Line } from "react-icons/ri";
 
 //CSS
-import styles from "./SearchBar.module.css"
-
-
-
-
-
+import styles from "./SearchBar.module.css";
 
 export default function SerachBar() {
-
-
   const history = useHistory();
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
-
-
-
-
 
   const handleChange = (event) => {
     setTitle(event.target.value.trim());
   };
 
-
-
-
   const handledSubmit = (event) => {
     event.preventDefault();
 
-
-    history.push("/home")
-    dispatch(getNameBooks(title))
-    setTitle("")
+    history.push("/home", { search: true });
+    dispatch(getNameBooks(title));
+    setTitle("");
   };
-
-
 
   return (
     <>
       <form className={styles.conteiner} onSubmit={handledSubmit}>
-        <input className={styles.input}
+        <input
+          className={styles.input}
           type={"text"}
           placeholder="Busca un Libro..."
           onChange={handleChange}
@@ -55,7 +39,6 @@ export default function SerachBar() {
         <button className={styles.button} title="Search" type="submit">
           <RiSearch2Line className={styles.icono} size="1.5rem" />
         </button>
-        
       </form>
     </>
   );
