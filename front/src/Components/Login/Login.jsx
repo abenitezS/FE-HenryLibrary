@@ -27,9 +27,6 @@ function Login() {
       })
   }
 
-  function onHandleClick(){
-    setShow(!show)
-  }
 
 
 
