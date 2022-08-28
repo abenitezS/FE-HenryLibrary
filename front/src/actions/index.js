@@ -119,8 +119,9 @@ export function setPage(page) {
 export function getBooksCount() {
     return function (dispatch) {
         axios
-            .get(`/catalog/count/}`)
+            .get(`/catalog/contar/1`)
             .then((response) => {
+              console.log(response.data);
                 dispatch({
                     type: GET_BOOKS_COUNT,
                     payload: response.data,
