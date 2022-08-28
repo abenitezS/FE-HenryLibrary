@@ -15,7 +15,8 @@ export const SET_PAGE = "SET_PAGE";
 export const GET_BOOKS_COUNT = "GET_BOOKS_COUNT";
 export const BANNED_BOOK = "BANNED_BOOK";
 export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK";
-export const GET_ALL_BOOKS_BY_AUTHOR = "GET_ALL_BOOKS_BY_AUTHOR";
+export const SET_ALL_BOOKS_BY_AUTHOR = "GET_ALL_BOOKS_BY_AUTHOR";
+export const SET_AUTHOR_BY_NAME = "GET_AUTHOR_BY_NAME";
 
 export function getAllBooks(pagina = 0, items = 10) {
   return function (dispatch) {
@@ -173,12 +174,28 @@ export function getBooksByAuthor(idAutor) {
       .get(`/catalog/author/${idAutor}`)
       .then((response) => {
         dispatch({
-          type: GET_ALL_BOOKS_BY_AUTHOR,
+          type: SET_ALL_BOOKS_BY_AUTHOR,
           payload: response.data,
         });
       })
       .catch((error) => {
         console.log("getBooksByCategory", error);
+      });
+  };
+}
+
+export function getAuthorByName(name) {
+  return function (dispatch) {
+    axios
+      .get(`/authors?name=${name}`)
+      .then((response) => {
+        dispatch({
+          type: SET_AUTHOR_BY_NAME,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getAuthorByName", error);
       });
   };
 }
