@@ -84,6 +84,14 @@ body {
     margin-bottom: 0.5rem;
 } 
 
+.active{
+    font-family: Quicksand;
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+    color: #4083d6
+}
+
+
 .description{
     margin-top: 0.5rem;
     font-family: Quicksand;
