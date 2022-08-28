@@ -10,13 +10,15 @@ import {
   GET_BOOKS_COUNT,
   BANNED_BOOK,
   DELETE_LOGICO_BOOK,
-  GET_ALL_BOOKS_BY_AUTHOR,
+  SET_ALL_BOOKS_BY_AUTHOR,
+  SET_AUTHOR_BY_NAME,
 } from "../actions/index";
 
 const initialState = {
   allBooks: [],
   bookDetail: [],
   categories: [],
+  authors: [],
   msg: [],
   page: 0,
   cantBooks: 0,
@@ -88,10 +90,16 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
 
-    case GET_ALL_BOOKS_BY_AUTHOR:
+    case SET_ALL_BOOKS_BY_AUTHOR:
       return {
         ...state,
         allBooks: action.payload,
+      };
+
+    case SET_AUTHOR_BY_NAME:
+      return {
+        ...state,
+        authors: action.payload,
       };
 
     default:
