@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooksId, deleteBookDetail, bannedBook, deleteLogicBook } from "../../actions";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 //COMPONENTES
 import NavBar from "../NavBar/NavBar";
@@ -34,10 +34,10 @@ export default function BookDetail() {
     dispatch(getBooksId(id));
 
     if (bookDetail.isActive === false  && bookDetail.isBanned === true ){
-      setDisabled(true);
+      setDisabled(true)
       setDisabledBanned(false)
     }else if (bookDetail.isActive === true && bookDetail.isBanned === false){
-      setDisabled(false);
+      setDisabled(false)
       setDisabledBanned(true)
     } else if (bookDetail.isBanned === false && bookDetail.isBanned === false){
       setDisabledBanned(true)
@@ -82,8 +82,7 @@ export default function BookDetail() {
   
   // dispatch(bannedBook)
   console.log("disabled",disabled)
-  console.log("isActive",bookDetail.isActive)
-  console.log("isBanned",bookDetail.isBanned)
+  console.log("disabledBanned",disabledBanned)
   console.log("bookDetail",bookDetail)
 
 
@@ -127,8 +126,8 @@ export default function BookDetail() {
         )}
 
         {bookDetail.authors && bookDetail.authors.map ((a) =>  (
-            <h4 className={styles.datos} key={a.id}>
-                  Autores: {a.name}
+            <h4 className={styles.datos} key={a.id}> Autores: 
+                <NavLink to="" activeClassName={styles.active}> {a.name}</NavLink> 
             </h4>                                                
         ) )} 
 
