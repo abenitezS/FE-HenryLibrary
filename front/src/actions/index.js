@@ -13,159 +13,173 @@ export const GET_ALL_BOOKS_BY_CATEGORY = "GET_ALL_BOOKS_BY_CATEGORY";
 export const POST_BOOK = "POST_BOOK";
 export const SET_PAGE = "SET_PAGE";
 export const GET_BOOKS_COUNT = "GET_BOOKS_COUNT";
-export const BANNED_BOOK = "BANNED_BOOK"
-export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK"
+export const BANNED_BOOK = "BANNED_BOOK";
+export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK";
+export const GET_ALL_BOOKS_BY_AUTHOR = "GET_ALL_BOOKS_BY_AUTHOR";
 
-
-
-export function getAllBooks(pagina=0, items=10) {
-    return function (dispatch) {
-        axios
-            .get(`/catalog?pagina=${pagina}&items=${items}`)
-            .then((response) => {
-                dispatch({
-                    type: "GET_ALL_BOOKS",
-                    payload: response.data,
-                });
-            })
-            .catch((error) => {
-                console.log("getAllBooks", error);
-            });
-    };
+export function getAllBooks(pagina = 0, items = 10) {
+  return function (dispatch) {
+    axios
+      .get(`/catalog?pagina=${pagina}&items=${items}`)
+      .then((response) => {
+        dispatch({
+          type: "GET_ALL_BOOKS",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getAllBooks", error);
+      });
+  };
 }
 
 export function getNameBooks(title) {
-    return function (dispatch) {
-        axios
-            .get(`/catalog?title=${title}`)
-            .then((response) => {
-                dispatch({
-                    type: "GET_NAME_BOOKS",
-                    payload: response.data,
-                });
-            })
-            .catch((error) => {
-                console.log("getNameBooks", error);
-            });
-    };
+  return function (dispatch) {
+    axios
+      .get(`/catalog?title=${title}`)
+      .then((response) => {
+        dispatch({
+          type: "GET_NAME_BOOKS",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getNameBooks", error);
+      });
+  };
 }
 
 export function getBooksId(id) {
-    return function (dispatch) {
-        axios
-            .get(`/catalog/${id}`)
-            .then((response) => {
-                dispatch({
-                    type: "GET_BOOKS_ID",
-                    payload: response.data,
-                });
-            })
-            .catch((error) => {
-                console.log("getBooksId", error);
-            });
-    };
+  return function (dispatch) {
+    axios
+      .get(`/catalog/${id}`)
+      .then((response) => {
+        dispatch({
+          type: "GET_BOOKS_ID",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getBooksId", error);
+      });
+  };
 }
 
 export function deleteBookDetail(id) {
-    //--> Lo utilizo para desmontar el componente de detalle
-    return {
-        type: "DELETE_BOOKS_DETAIL",
-        payload: id,
-    };
+  //--> Lo utilizo para desmontar el componente de detalle
+  return {
+    type: "DELETE_BOOKS_DETAIL",
+    payload: id,
+  };
 }
 
 export function uploadBook(book) {
-    return function (dispatch) {
-        axios.post(`/catalog`, book).then((response) => {
-            dispatch({ type: POST_BOOK, payload: response.data });
-        });
-    };
+  return function (dispatch) {
+    axios.post(`/catalog`, book).then((response) => {
+      dispatch({ type: POST_BOOK, payload: response.data });
+    });
+  };
 }
 
 export function getCategories() {
-    return function (dispatch) {
-        axios
-            .get(`/categories`)
-            .then((response) => {
-                dispatch({
-                    type: GET_ALL_CATEGORIES,
-                    payload: response.data,
-                });
-            })
-            .catch((error) => {
-                console.log("getBooksByCategory", error);
-            });
-    };
+  return function (dispatch) {
+    axios
+      .get(`/categories`)
+      .then((response) => {
+        dispatch({
+          type: GET_ALL_CATEGORIES,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getBooksByCategory", error);
+      });
+  };
 }
 
 export function getBooksByCategory(idCategory) {
-    return function (dispatch) {
-        axios
-            .get(`/catalog/category/${idCategory}`)
-            .then((response) => {
-                dispatch({
-                    type: GET_ALL_BOOKS_BY_CATEGORY,
-                    payload: response.data,
-                });
-            })
-            .catch((error) => {
-                console.log("getBooksByCategory", error);
-            });
-    };
+  return function (dispatch) {
+    axios
+      .get(`/catalog/category/${idCategory}`)
+      .then((response) => {
+        dispatch({
+          type: GET_ALL_BOOKS_BY_CATEGORY,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getBooksByCategory", error);
+      });
+  };
 }
 
 export function setPage(page) {
-    return function (dispatch) {
-        dispatch({ type: SET_PAGE, payload: page });
-    };
+  return function (dispatch) {
+    dispatch({ type: SET_PAGE, payload: page });
+  };
 }
 
 export function getBooksCount() {
-    return function (dispatch) {
-        axios
-            .get(`/catalog/contar/1`)
-            .then((response) => {
-              console.log(response.data);
-                dispatch({
-                    type: GET_BOOKS_COUNT,
-                    payload: response.data,
-                });
-            })
-            .catch((error) => {
-                console.log("getBooksCount", error);
-            });
-    };
+  return function (dispatch) {
+    axios
+      .get(`/catalog/contar/1`)
+      .then((response) => {
+        console.log(response.data);
+        dispatch({
+          type: GET_BOOKS_COUNT,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getBooksCount", error);
+      });
+  };
 }
-
 
 export function bannedBook(id) {
   return function (dispatch) {
-      axios
-          .put(`/catalog/banned/${id}`)
-          .then((response) => {
-              dispatch({
-                  type: "BANNED_BOOK",
-                  payload: response.data,
-              });
-          })
-          .catch((error) => {
-              console.log("bannedBook", error);
-          });
+    axios
+      .put(`/catalog/banned/${id}`)
+      .then((response) => {
+        dispatch({
+          type: "BANNED_BOOK",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("bannedBook", error);
+      });
   };
 }
 
 export function deleteLogicBook(id) {
   return function (dispatch) {
-      axios
-          .put(`/catalog/delete/${id}`)
-          .then((response) => {
-              dispatch({
-                  type: "DELETE_LOGICO_BOOK",
-                  payload: response.data,
-              });
-          })
-          .catch((error) => {
-              console.log("deleteLogicBook", error);
-          });
+    axios
+      .put(`/catalog/delete/${id}`)
+      .then((response) => {
+        dispatch({
+          type: "DELETE_LOGICO_BOOK",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("deleteLogicBook", error);
+      });
+  };
+}
+
+export function getBooksByAuthor(idAutor) {
+  return function (dispatch) {
+    axios
+      .get(`/catalog/author/${idAutor}`)
+      .then((response) => {
+        dispatch({
+          type: GET_ALL_BOOKS_BY_AUTHOR,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getBooksByCategory", error);
+      });
   };
 }
