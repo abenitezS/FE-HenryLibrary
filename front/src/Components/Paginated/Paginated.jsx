@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllBooks, getBooksCount, setPage } from "../../actions";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 
 //CSS
 import styles from "./Paginated.module.css";
@@ -11,6 +12,8 @@ export default function Paginated() {
     const itemsPorPagina = 10;
     const cantPaginas = Math.ceil(cantBooks / itemsPorPagina) - 1;
 
+    const pageNumbers = [];
+
     useEffect(() => {
         dispatch(getBooksCount());
     }, [dispatch, cantBooks]);
@@ -20,27 +23,71 @@ export default function Paginated() {
         dispatch(getAllBooks(page));
     }
 
+    function paginate(pageActual, cantPaginas) {
+        let start;
+        let end;
+        let numeros = [];
+
+        if (pageActual - 2 >= 0) start = actualPage - 2
+        else if (pageActual - 1 >= 0) start = actualPage - 1
+        else start = actualPage;
+
+        end = start + 4 <= cantPaginas ? start + 4 : cantPaginas;
+
+        if (end - start !== 4) {
+            let diferencia = end === actualPage ? 2 : end - actualPage;
+            start = start - diferencia < 0 ? 0 : start -= diferencia;
+        }
+
+        for (let i = start; i <= end; i++) {
+            numeros.push(i);
+        }
+
+        return numeros;
+    }
+
+    for (let i = 0; i <= cantPaginas; i++) {
+        pageNumbers.push(i);
+    }
+
+    let paginasVisibles = paginate(actualPage, cantPaginas);
+
     return (
         <div>
-            <button
-                disabled={actualPage === 0}
-                className={actualPage > 0 ? styles.Btn : styles.BtnDisabled}
-                key={"prev"}
-                onClick={() => handleChangePage(actualPage - 1)}
-            >
-                {"<"}
-            </button>
+            <ButtonGroup variant="outline" spacing="2">
+                <Button
+                    colorScheme="teal"
+                    size="xs"
+                    onClick={() => handleChangePage(actualPage - 1)}
+                    disabled={actualPage === 0}
+                >
+                    {"<"}
+                </Button>
 
-            <button
-                disabled={actualPage === cantPaginas}
-                className={
-                    actualPage < cantPaginas ? styles.Btn : styles.BtnDisabled
-                }
-                key={"next"}
-                onClick={() => handleChangePage(actualPage + 1)}
-            >
-                {">"}
-            </button>
+                {paginasVisibles.length > 0 &&
+                    paginasVisibles.map((p, i) => {
+                        return (
+                            <Button
+                                colorScheme="teal"
+                                size="xs"
+                                onClick={() => handleChangePage(p)}
+                                disabled={p === actualPage}
+                                key={p}
+                            >
+                                {p + 1}
+                            </Button>
+                        );
+                    })}
+
+                <Button
+                    colorScheme="teal"
+                    size="xs"
+                    onClick={() => handleChangePage(actualPage + 1)}
+                    disabled={actualPage === cantPaginas}
+                >
+                    {">"}
+                </Button>
+            </ButtonGroup>
         </div>
     );
 }
