@@ -29,6 +29,7 @@ export default function Footer() {
             placeholder="Nombre del Autor"
             focusBorderColor="#01A86C"
             //   color="#01A86C"
+            background="fff"
             fontFamily="Quicksand"
             _placeholder={{ color: "#01A86C", fontFamily: "Quicksand" }}
             onChange={(event) => setAuthor(event.currentTarget.value)}
