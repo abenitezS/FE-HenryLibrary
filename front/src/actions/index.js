@@ -18,6 +18,8 @@ export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK";
 export const SET_ALL_BOOKS_BY_AUTHOR = "GET_ALL_BOOKS_BY_AUTHOR";
 export const SET_AUTHOR_BY_NAME = "GET_AUTHOR_BY_NAME";
 export const GET_ALL_AUTHORS = "GET_ALL_AUTHORS";
+export const GET_ALL_PUBLISHERS = "GET_ALL_PUBLISHERS";
+
 
 export function getAllBooks(pagina = 0, items = 10) {
   return function (dispatch) {
@@ -218,6 +220,22 @@ export function getAllAuthors() {
       })
       .catch((error) => {
         console.log("getAllAuthors", error);
+      });
+  };
+}
+
+export function getAllPublishers() {
+  return function (dispatch) {
+    axios
+      .get(`/publisher`)
+      .then((response) => {
+        dispatch({
+          type: GET_ALL_PUBLISHERS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("getAllPublishers", error);
       });
   };
 }

@@ -12,7 +12,8 @@ import {
     DELETE_LOGICO_BOOK,
     SET_ALL_BOOKS_BY_AUTHOR,
     SET_AUTHOR_BY_NAME,
-    GET_ALL_AUTHORS
+    GET_ALL_AUTHORS,
+    GET_ALL_PUBLISHERS,
 } from "../actions/index";
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
     bookDetail: [],
     categories: [],
     authors: [],
+    publishers: [],
     msg: [],
     page: 0,
     cantBooks: 0,
@@ -111,14 +113,17 @@ function rootReducer(state = initialState, action) {
                 authors: action.payload,
             };
 
-            case GET_ALL_AUTHORS:
-                return {
-                    ...state,
-                    authors: action.payload,
-                };
+        case GET_ALL_AUTHORS:
+            return {
+                ...state,
+                authors: action.payload,
+            };
 
-
-            
+        case GET_ALL_PUBLISHERS:
+            return {
+                ...state,
+                publishers: action.payload,
+            };
 
         default:
             return state;
