@@ -17,7 +17,7 @@ import CardsAuthor from "./Components/CardsAuthor/CardsAuthor";
 function App() {
   return (
     <>
-      {/*Se agregan las rutas para el primer spint solo queda importar los componentes y pasarlos a cada ruta, puede ser necesario realizar cambios, ir descomentando una a una para que se puedan renderizar bien los componentes */}
+		{/*Se agregan las rutas para el primer spint solo queda importar los componentes y pasarlos a cada ruta, puede ser necesario realizar cambios, ir descomentando una a una para que se puedan renderizar bien los componentes */}
 
       <Switch>
         {/*Ruta Landing Page */}
