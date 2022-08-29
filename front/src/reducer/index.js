@@ -75,7 +75,7 @@ function rootReducer(state = initialState, action) {
         case POST_BOOK:
             return {
                 ...state,
-                allBooks: action.payload,
+                allBooks: [...state.allBooks, { ...action.payload }],
             };
 
         case SET_PAGE:
