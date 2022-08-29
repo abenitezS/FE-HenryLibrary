@@ -10,6 +10,7 @@ import AboutUs from "./Components/Extras/AboutUs/AboutUs";
 import PoliticaPrivacidad from "./Components/Extras/PoliticaPrivacidad/PoliticaPrivacidad";
 import PoliticaDevolucion from "./Components/Extras/PoliticaDevolucion/PoliticaDevolucion";
 import PageError from "./Components/PageError/PageError.jsx"
+import CardsAuthor from "./Components/CardsAuthor/CardsAuthor";
 
 
 function App() {
@@ -42,6 +43,8 @@ function App() {
       {/*Ruta administrador*/}
       {/* <Route path={"/user/admin"} component={} /> */}
 
+      <Route path="/catalog/author/:id" component={CardsAuthor} />
+ 
 
       {/*Rutas Extras*/}
       <Route path="/aboutUs" component={AboutUs} />
