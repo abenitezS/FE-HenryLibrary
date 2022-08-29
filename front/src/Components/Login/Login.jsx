@@ -60,12 +60,13 @@ function Login() {
 
         <button><FcGoogle /></button>
 
+
+        <button className={styles.boton}>Ingresar</button>
+
         <div className={styles.cuenta}>
           <button>Crear nueva cuenta</button>
           <button>Olvido la contraseña</button>
         </div>
-
-        <button className={styles.boton}>Ingresar</button>
 
       </div>
     </div>

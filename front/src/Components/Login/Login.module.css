@@ -45,11 +45,12 @@ body {
     height: 30px;
     margin-bottom: 1rem;
     border-radius: 30px;
-    box-shadow: inset 0px 0px 12px 0px #888;
+    /* box-shadow: inset 0px 0px 12px 0px #888; */
+    border: 1px solid #ABABAB;
     text-align: center;
     color: #5d5d5d;
     font-size: 13px;
-    border: none;
+    /* border: none; */
     outline: none;
     background-color: #fff;
     
