@@ -15,6 +15,11 @@ import Footer from "../Footer/Footer";
 
 //CSS
 import styles from "./BookDetail.module.css";
+import {RiShoppingCart2Fill} from "react-icons/ri"
+
+
+
+
 
 export default function BookDetail() {
     const dispatch = useDispatch();
@@ -59,6 +64,9 @@ export default function BookDetail() {
         setDisabledBanned(!bookDetail.isBanned);
         dispatch(bannedBook(id));
     }
+
+
+    console.log(bookDetail)
 
     return (
         <div className={styles.detail}>
@@ -154,6 +162,7 @@ export default function BookDetail() {
 
                         <div className={styles.botones}>
                             <div className={styles.carrito}>
+                                <div className={styles.carritoCompra}><RiShoppingCart2Fill size="1.5rem"/></div>
                                 <button className={styles.boton}>
                                     Agregar al carrito
                                 </button>
