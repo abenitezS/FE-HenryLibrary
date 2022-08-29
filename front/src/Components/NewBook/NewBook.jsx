@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { uploadBook } from "../../actions";
+import { uploadBook, getAllAuthors, getCategories } from '../../actions';
 
 //CSS
 import styles from "./NewBook.module.css";
@@ -9,6 +9,14 @@ import styles from "./NewBook.module.css";
 export default function NewRecipe() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const allAuthors = useSelector((state) => state.authors);
+  const allCategories = useSelector((state) => state.categories);
+  
+
+useEffect(() => {
+  dispatch(getAllAuthors());  
+  dispatch(getCategories()); 
+}, [dispatch]);
 
   const [publisherIdError, setPublisherIdError] = useState(false);
   const [titleError, setTitleError] = useState(false);
@@ -19,19 +27,21 @@ export default function NewRecipe() {
   const [pageCountError, setPageCountError] = useState(false);
   const [currentStockError, setcurrentStockError] = useState(false);
   const [languageError, setLanguageError] = useState(false);
-  const [isBannedError, setIsBannedError] = useState(false);
+  const [authorError, setAuthorError] = useState(false);
 
   let [book, setBook] = useState({
-    publisherId: 0,
+    publisherId: 1,
     title: "",
     description: "",
-    price: 0,
+    price: 1.0,
     image: "",
     publishedDate: "",
-    pageCount: 0,
+    pageCount: 1,
     currentStock: 0,
     language: "",
-    isBanned: false
+    isBanned: false,
+    authors:[],
+    categories:[]
   });
 
   const handleInputsChange = (e) => {
@@ -44,8 +54,7 @@ export default function NewRecipe() {
     setPageCountError(false);
     setcurrentStockError(false);
     setLanguageError(false);
-    setIsBannedError(false);
-  
+    
 
     setBook({
       ...book,
@@ -68,43 +77,52 @@ export default function NewRecipe() {
     setPageCountError(false);
     setcurrentStockError(false);
     setLanguageError(false);
-    setIsBannedError(false);
+   
 
-    // if (!book.publisherId) {
-    //   return setTitleError("Ya existe ID Cargada");
-    // } ---> validar si no existe en BBDD
+    console.log(book);
+
+    if (!book.publisherId || book.publisherId <= 0) {
+      return setPublisherIdError("Cargar ID Valida"); // ---> validar si no existe en BBDD
+    }
 
     if (!book.title) {
-      return setTitleError("Ingrese un Titulo correcto para su Libro");
+      return setTitleError("Ingrese un Titulo para su Libro");
     }
+
     if (!book.description) {
       return setDescriptionError("Ingrese una Descripcion para su Libro");
     }
-    if (!book.price || !book.price === Number) {
+
+    if (!book.price || book.price === isNaN || book.price <= 0) {
       return setPriceError("Ingrese un Precio correcto para su Libro");
     }
 
+    if (!book.currentStock || book.currentStock <= 0) {
+      return setcurrentStockError("Ingrese un Stock correcto");
+    }
     if (!patternURL.test(book.image)) {
       return setImageError("Ingrese un formato correcro URL de imagen");
     }
 
-    if (!book.currentStock || !book.currentStock === Number) {
-      return setcurrentStockError("Ingrese un Stock correcto");
+    if (!book.pageCount || book.pageCount <= 0) {
+      return setPageCountError("Ingrese Cant. Paginas correctas");
     }
 
     dispatch(uploadBook(book));
 
     setBook({
-      publisherId: 0,
+      publisherId: 1,
       title: "",
       description: "",
-      price: 0,
+      price: 1.0,
       image: "",
       publishedDate: "",
-      pageCount: 0,
+      pageCount: 1,
       currentStock: 0,
       language: "",
-      isBanned: false
+      isBanned: false,
+      authors:[],
+      categories:[]
     });
     alert("Libro creado Exitosamente!");
   };
@@ -114,14 +132,27 @@ export default function NewRecipe() {
     history.push("/"); // ---> esta ruta debe volver al catalogo
   };
 
+  const handleSelectChange = (e) => {
+    setLanguageError(false);
+    const value = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
+    setBook({
+      ...book,
+      [e.target.name]: value,
+    });
+  };
+
+  
+
   return (
     <div className={styles.containerFormu}>
       <h1 className={styles.titleFormu}>Nuevo Libro</h1>
       <form action="POST">
         <div className={styles.containerInputs}>
-
           <div className={styles.containerInput}>
-            <label>Id de Editorial: </label>
+            <label>Id Editorial: </label>
             <input
               placeholder="ingrese ID"
               type="text"
@@ -200,7 +231,6 @@ export default function NewRecipe() {
             </div>
           </div>
 
-
           <div className={styles.containerInput}>
             <label>Imagen: </label>
             <input
@@ -248,37 +278,86 @@ export default function NewRecipe() {
 
           <div className={styles.containerInput}>
             <label>Lenguaje: </label>
-            <input
-              type="text"
-              name="language"
+            <select
+              name="languages"
               value={book.language}
               className={styles.inputs}
-              onChange={handleInputsChange}
-            />
+              onChange={handleSelectChange}
+            >
+              <option value="es">Español</option>
+              <option value="en">Ingles</option>
+              <option value="pt">Portugues</option>
+            </select>
+
             <div className={styles.danger}>
               {languageError && <p>{languageError}</p>}
             </div>
           </div>
 
+
           <div className={styles.containerInput}>
-            <label>Venta: </label>
-            <input
-              type="text"
-              name="isBanned"
-              value={book.isBanned}
-              className={styles.inputs}
-              onChange={handleInputsChange}
-            />
+            <label>Autores: </label>         
+                 <select
+                className={styles.inputs}
+                value={book.authors}
+                multiple
+                 size="6"
+                name="authors"                
+                onChange={handleSelectChange}
+            >               
+                {allAuthors &&
+                    allAuthors.map((a) => (
+                        <option key={a.name} value={a.name}>
+                            {a.name}
+                        </option>
+                    ))}
+                 </select>
+
             <div className={styles.danger}>
-              {isBannedError && <p>{isBannedError}</p>}
+              {/* {languageError && <p>{languageError}</p>} */}
             </div>
           </div>
+
+
+
+
+          <div className={styles.containerInput}>
+            <label>Categorias: </label>         
+                 <select
+                className={styles.inputs}
+                value={book.categories}
+                multiple
+                 size="6"
+                name="categories"                
+                onChange={handleSelectChange}
+            >               
+                {allCategories &&
+                    allCategories.map((c) => (
+                        <option key={c.name} value={c.name}>
+                            {c.name}
+                        </option>
+                    ))}
+                 </select>
+
+            <div className={styles.danger}>
+              {/* {languageError && <p>{languageError}</p>} */}
+            </div>
+          </div>
+
+        
+
+
+
+
+
 
           <div className={styles.containerButtons}>
             <button
               type="submit"
               onClick={handleOnSubmit}
-              className={styles.button}>Enviar
+              className={styles.button}
+            >
+              Enviar
             </button>
             <button onClick={handleBackSubmit} className={styles.button}>
               Cancelar

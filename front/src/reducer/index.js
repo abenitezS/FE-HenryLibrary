@@ -12,6 +12,7 @@ import {
     DELETE_LOGICO_BOOK,
     SET_ALL_BOOKS_BY_AUTHOR,
     SET_AUTHOR_BY_NAME,
+    GET_ALL_AUTHORS
 } from "../actions/index";
 
 const initialState = {
@@ -109,6 +110,15 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 authors: action.payload,
             };
+
+            case GET_ALL_AUTHORS:
+                return {
+                    ...state,
+                    authors: action.payload,
+                };
+
+
+            
 
         default:
             return state;
