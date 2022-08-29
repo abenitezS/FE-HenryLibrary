@@ -39,7 +39,7 @@ function rootReducer(state = initialState, action) {
         case GET_ALL_BOOKS:
             return {
                 ...state,
-                createBooks: action.payload,
+                allBooks: action.payload,
             };
 
         case GET_NAME_BOOKS:
