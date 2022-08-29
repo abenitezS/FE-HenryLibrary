@@ -9,7 +9,7 @@ body {
 
 .container {
     right: 8rem;
-    top: 3.5rem;
+    top: 5rem;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
 
 .containerItems {
     width: 18rem;
-    height: 18rem;
+    height: 21rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,6 +55,14 @@ body {
     
 }
 
+.cuenta{
+    display: flex;
+    flex-direction: column;
+    color: #01A86C;
+    font-size: 10px;
+    margin-top: 4%;
+    text-decoration: underline;
+}
 
 .boton {
     background-color: #01A86C;

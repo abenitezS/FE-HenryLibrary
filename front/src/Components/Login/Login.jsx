@@ -5,6 +5,7 @@ import styles from "./Login.module.css";
 import { Avatar} from "@chakra-ui/react";
 import {FiMail, FiEyeOff, FiEye} from "react-icons/fi"
 import {MdNoEncryptionGmailerrorred} from "react-icons/md"
+import {FcGoogle} from "react-icons/fc"
 
 
 
@@ -55,6 +56,13 @@ function Login() {
             <input className={styles.input} type="password" placeholder="Nombre de usuario" name="password" value={login.password} onChange={handleChange}/>
             
            
+        </div>
+
+        <button><FcGoogle /></button>
+
+        <div className={styles.cuenta}>
+          <button>Crear nueva cuenta</button>
+          <button>Olvido la contraseña</button>
         </div>
 
         <button className={styles.boton}>Ingresar</button>
