@@ -158,6 +158,8 @@ useEffect(() => {
       <h1 className={styles.titleFormu}>Nuevo Libro</h1>
       <form action="POST">
         <div className={styles.containerInputs}>
+          {/*Debe ir select pero no al principio 
+          
           <div className={styles.containerInput}>
             <label>Id Editorial: </label>
             <input
@@ -172,7 +174,7 @@ useEffect(() => {
             <div className={styles.danger}>
               {publisherIdError && <p>{publisherIdError}</p>}
             </div>
-          </div>
+          </div> */}
 
           <div className={styles.containerInput}>
             <label>Titulo: </label>
@@ -297,6 +299,8 @@ useEffect(() => {
             </select>
           </div>
 
+          {/* CAMBIOS!!!!! debe permitir seleccionar y mostrar seleccionados luego marcar de eliminar  
+          
           <div className={styles.containerInput}>
             <label>Autores: </label>         
                  <select
@@ -333,7 +337,7 @@ useEffect(() => {
                         </option>
                     ))}
                  </select>  
-          </div>
+          </div> */}  
 
           <div className={styles.containerButtons}>
             <button
