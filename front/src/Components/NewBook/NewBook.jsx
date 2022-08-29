@@ -27,8 +27,7 @@ useEffect(() => {
   const [pageCountError, setPageCountError] = useState(false);
   const [currentStockError, setcurrentStockError] = useState(false);
   const [languageError, setLanguageError] = useState(false);
-  const [authorError, setAuthorError] = useState(false);
-
+  
   let [book, setBook] = useState({
     publisherId: 1,
     title: "",
@@ -76,11 +75,11 @@ useEffect(() => {
     setPublishedDateError(false);
     setPageCountError(false);
     setcurrentStockError(false);
-    setLanguageError(false);
-   
+    setLanguageError(false);   
 
     console.log(book);
 
+    // Esta Validacion no es lo que debe ir, falta rutas del back "a modificar"
     if (!book.publisherId || book.publisherId <= 0) {
       return setPublisherIdError("Cargar ID Valida"); // ---> validar si no existe en BBDD
     }
@@ -132,8 +131,8 @@ useEffect(() => {
     history.push("/"); // ---> esta ruta debe volver al catalogo
   };
 
-  const handleSelectChange = (e) => {
-    setLanguageError(false);
+  const handleSelectMultipleChange = (e) => {
+   
     const value = Array.from(
       e.target.selectedOptions,
       (option) => option.value
@@ -144,6 +143,14 @@ useEffect(() => {
     });
   };
 
+  const handleSelectChange = (e) => {
+    setLanguageError(false);
+
+    setBook({
+        ...book,
+        [e.target.name]: e.target.value,
+    });
+};
   
 
   return (
@@ -288,12 +295,7 @@ useEffect(() => {
               <option value="en">Ingles</option>
               <option value="pt">Portugues</option>
             </select>
-
-            <div className={styles.danger}>
-              {languageError && <p>{languageError}</p>}
-            </div>
           </div>
-
 
           <div className={styles.containerInput}>
             <label>Autores: </label>         
@@ -303,7 +305,7 @@ useEffect(() => {
                 multiple
                  size="6"
                 name="authors"                
-                onChange={handleSelectChange}
+                onChange={handleSelectMultipleChange}
             >               
                 {allAuthors &&
                     allAuthors.map((a) => (
@@ -312,14 +314,7 @@ useEffect(() => {
                         </option>
                     ))}
                  </select>
-
-            <div className={styles.danger}>
-              {/* {languageError && <p>{languageError}</p>} */}
-            </div>
           </div>
-
-
-
 
           <div className={styles.containerInput}>
             <label>Categorias: </label>         
@@ -329,7 +324,7 @@ useEffect(() => {
                 multiple
                  size="6"
                 name="categories"                
-                onChange={handleSelectChange}
+                onChange={handleSelectMultipleChange}
             >               
                 {allCategories &&
                     allCategories.map((c) => (
@@ -337,19 +332,8 @@ useEffect(() => {
                             {c.name}
                         </option>
                     ))}
-                 </select>
-
-            <div className={styles.danger}>
-              {/* {languageError && <p>{languageError}</p>} */}
-            </div>
+                 </select>  
           </div>
-
-        
-
-
-
-
-
 
           <div className={styles.containerButtons}>
             <button
