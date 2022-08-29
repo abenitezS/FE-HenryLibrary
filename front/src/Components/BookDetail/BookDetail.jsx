@@ -7,10 +7,12 @@ import { NavLink, useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import NavBar2 from "../NavBar2/NavBar2";
 import Footer from "../Footer/Footer";
+import EditBook from "../EditBook/EditBook";
 
 //CSS
 import styles from "./BookDetail.module.css";
 import { RiShoppingCart2Fill } from "react-icons/ri";
+
 
 
 export default function BookDetail() {
@@ -20,6 +22,8 @@ export default function BookDetail() {
     const bookDetail = useSelector((state) => state.bookDetail);
 
     const [isActive, setIsActive] = useState(true);
+
+    const [modal, setModal] = useState(false)
 
     useEffect(() => {
         dispatch(getBooksId(id));
@@ -44,6 +48,10 @@ export default function BookDetail() {
 
     function handleClickCarrito() {
         console.log("agregado");
+    }
+
+    function handleClickModal() {
+        setModal(!modal)
     }
 
     console.log(bookDetail);
@@ -173,6 +181,8 @@ export default function BookDetail() {
                                 >
                                     {isActive ? "ACTIVO" : "BORRADO"}
                                 </button>
+
+                                <button onClick={handleClickModal}>EDITAR</button>
                             </div>
                         </div>
                     </div>
@@ -182,7 +192,10 @@ export default function BookDetail() {
             <div className={styles.recomendados}>
                 ACA VAN NUESTROS RECOMENDADOS{" "}
             </div>
+
             <Footer />
+
+            {modal && ( <EditBook />) }
         </div>
     );
 }
