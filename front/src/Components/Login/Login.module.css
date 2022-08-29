@@ -9,7 +9,7 @@ body {
 
 .container {
     right: 8rem;
-    top: 3.5rem;
+    top: 5rem;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
 
 .containerItems {
     width: 18rem;
-    height: 18rem;
+    height: 21rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,16 +45,25 @@ body {
     height: 30px;
     margin-bottom: 1rem;
     border-radius: 30px;
-    box-shadow: inset 0px 0px 12px 0px #888;
+    /* box-shadow: inset 0px 0px 12px 0px #888; */
+    border: 1px solid #ABABAB;
     text-align: center;
     color: #5d5d5d;
     font-size: 13px;
-    border: none;
+    /* border: none; */
     outline: none;
     background-color: #fff;
     
 }
 
+.cuenta{
+    display: flex;
+    flex-direction: column;
+    color: #01A86C;
+    font-size: 10px;
+    margin-top: 4%;
+    text-decoration: underline;
+}
 
 .boton {
     background-color: #01A86C;
