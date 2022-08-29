@@ -160,8 +160,15 @@ body {
     height: 60px;
     background-color: #01A86C;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 8px;
+    padding-right: 29px;
+}
+
+.carritoCompra{
+    position: absolute;
+    top: 87%;
+    right: 27%;
 }
 
 
