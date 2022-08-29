@@ -12,6 +12,7 @@ import Footer from "../Footer/Footer";
 import styles from "./BookDetail.module.css";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 
+
 export default function BookDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -95,13 +96,12 @@ export default function BookDetail() {
                         {bookDetail.authors &&
                             bookDetail.authors.map((a) => (
                                 <h4 className={styles.datos} key={a.id}>
-                                    {" "}
+                                 
                                     Autores:
                                     <NavLink
-                                        to=""
-                                        activeClassName={styles.active}
+                                        to={`/catalog/author/${a.id}`}
+                                        className={styles.active}
                                     >
-                                        {" "}
                                         {a.name}
                                     </NavLink>
                                 </h4>
