@@ -12,7 +12,7 @@ export default function Book({ id, title, authors, image, price, stock }) {
       </NavLink>
 
       <p className={styles.title}>{title}</p>
-      {/* <h4 className={styles.authors}>{authors.map(a => a.name)}</h4> */}
+      <h4 className={styles.authors}>{authors && authors.map(a => `Autor: ${a.name}`)}</h4>
 
       <div className={styles.conteiner}>
         <div className={styles.info}>

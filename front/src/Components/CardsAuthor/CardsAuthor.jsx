@@ -16,7 +16,7 @@ export default function CardsAuthor() {
 
   useEffect(() => {
     dispatch(getBooksByAuthor(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
 
 
