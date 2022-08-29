@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    getBooksId,
-    deleteBookDetail,
-    bannedBook,
-    deleteLogicBook,
-} from "../../actions";
+import { getBooksId, deleteBookDetail, deleteLogicBook } from "../../actions";
 import { NavLink, useParams } from "react-router-dom";
 
 //COMPONENTES
@@ -15,11 +10,7 @@ import Footer from "../Footer/Footer";
 
 //CSS
 import styles from "./BookDetail.module.css";
-import {RiShoppingCart2Fill} from "react-icons/ri"
-
-
-
-
+import { RiShoppingCart2Fill } from "react-icons/ri";
 
 export default function BookDetail() {
     const dispatch = useDispatch();
@@ -28,8 +19,6 @@ export default function BookDetail() {
     const bookDetail = useSelector((state) => state.bookDetail);
 
     const [isActive, setIsActive] = useState(true);
-
-    const [disabledBanned, setDisabledBanned] = useState(false);
 
     useEffect(() => {
         dispatch(getBooksId(id));
@@ -48,25 +37,15 @@ export default function BookDetail() {
     }, [bookDetail.isActive]);
 
     function handleClickDeleteLogic(id) {
-        // if (bookDetail.isActive === false) {
-        //     setDisabled(true);
-        // } else if (bookDetail.isActive === true) {
-        //     setDisabled(false);
-        // }
-
-        // console.log(bookDetail.isActive, id);
         dispatch(deleteLogicBook(id));
-        // setIsActive(bookDetail.isActive);
         dispatch(getBooksId(id));
     }
 
-    function handleClickBanner(id) {
-        setDisabledBanned(!bookDetail.isBanned);
-        dispatch(bannedBook(id));
+    function handleClickCarrito() {
+        console.log("agregado");
     }
 
-
-    console.log(bookDetail)
+    console.log(bookDetail);
 
     return (
         <div className={styles.detail}>
@@ -162,8 +141,20 @@ export default function BookDetail() {
 
                         <div className={styles.botones}>
                             <div className={styles.carrito}>
-                                <div className={styles.carritoCompra}><RiShoppingCart2Fill size="1.5rem"/></div>
-                                <button className={styles.boton}>
+                                <div className={styles.carritoCompra}>
+                                    <RiShoppingCart2Fill size="1.5rem" />
+                                </div>
+                                <button
+                                    className={
+                                        bookDetail.currentStock > 0
+                                            ? styles.boton
+                                            : styles.boton +
+                                              " " +
+                                              styles.botonDisabled
+                                    }
+                                    disabled={bookDetail.currentStock === 0}
+                                    onClick={handleClickCarrito}
+                                >
                                     Agregar al carrito
                                 </button>
                             </div>
@@ -172,7 +163,6 @@ export default function BookDetail() {
                                     onClick={() => {
                                         handleClickDeleteLogic(bookDetail.id);
                                     }}
-                                    // disabled={disabled}
                                     className={
                                         isActive
                                             ? styles.botonBorradoLogico
@@ -181,16 +171,7 @@ export default function BookDetail() {
                                               styles.botonBorradoLogicoDes
                                     }
                                 >
-                                    {isActive ? "ACTIVO" : "INACTIVO"}
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        handleClickBanner(bookDetail.id);
-                                    }}
-                                    disabled={disabledBanned}
-                                    className={styles.botonBorrado}
-                                >
-                                    BORRAR
+                                    {isActive ? "ACTIVO" : "BORRADO"}
                                 </button>
                             </div>
                         </div>
