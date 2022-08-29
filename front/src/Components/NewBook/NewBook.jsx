@@ -2,16 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { uploadBook, getAllAuthors, getCategories, getAllPublishers } from "../../actions";
+import validate from "./validate.js"
+
+//COMPONENTES
+import Footer from "../Footer/Footer.jsx"
+import NavBar from "../NavBar/NavBar.jsx"
+import NavBar2 from "../NavBar2/NavBar2.jsx"
 
 //CSS
 import styles from "./NewBook.module.css";
 
+
+
+
 export default function NewRecipe() {
+
     const dispatch = useDispatch();
     const history = useHistory();
     const allAuthors = useSelector((state) => state.authors);
     const allCategories = useSelector((state) => state.categories);
     const allPublishers = useSelector((state) => state.publishers);
+
+
+
 
     useEffect(() => {
         dispatch(getAllAuthors());
@@ -19,17 +32,10 @@ export default function NewRecipe() {
         dispatch(getAllPublishers());
     }, [dispatch]);
 
-    const [publisherIdError, setPublisherIdError] = useState(false);
-    const [titleError, setTitleError] = useState(false);
-    const [descriptionError, setDescriptionError] = useState(false);
-    const [priceError, setPriceError] = useState(false);
-    const [imageError, setImageError] = useState(false);
-    const [publishedDateError, setPublishedDateError] = useState(false);
-    const [pageCountError, setPageCountError] = useState(false);
-    const [currentStockError, setcurrentStockError] = useState(false);
-    const [languageError, setLanguageError] = useState(false);
 
-    let [book, setBook] = useState({
+    //ESTADO DEL FORMULARIO
+
+    const [book, setBook] = useState({
         publisherId: 1,
         title: "",
         description: "",
@@ -39,73 +45,62 @@ export default function NewRecipe() {
         pageCount: 1,
         currentStock: 0,
         language: "",
-        isBanned: false,
         authors: [],
         categories: [],
+        lenguage: ""
     });
 
-    const handleInputsChange = (e) => {
-        setPublisherIdError(false);
-        setTitleError(false);
-        setDescriptionError(false);
-        setPriceError(false);
-        setImageError(false);
-        setPublishedDateError(false);
-        setPageCountError(false);
-        setcurrentStockError(false);
-        setLanguageError(false);
 
-        setBook({
-            ...book,
-            [e.target.name]: e.target.value,
-        });
-    };
+    //ESTADO DE ERRORES
+    const [errores, setErrores] = useState({})
 
-    const patternURL = new RegExp(
-        /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/gi
-    );
+
+
+
+   //FUNCION QUE MANIPULA LOS INPUTS
+    
+   function handleInputsChange(event) {
+
+    if(event.target.name === "authors"){  
+
+      if(!book.authors.includes(event.target.value)){
+
+        setBook({...book, 
+            authors: [...book.authors, event.target.value]
+        })
+
+      } 
+      
+      
+    }else if ( event.target.name === "categories"  ){
+
+        if(!book.categories.includes(event.target.value)){
+        setBook({...book, 
+            categories: [...book.categories, event.target.value]
+        })
+       }
+    
+    }  else{
+        
+      setBook({
+      ...book,
+      [event.target.name]: event.target.value,
+      })
+    
+      setErrores(validate ({
+        ...book,
+        [event.target.name]:event.target.value
+       }));
+
+   
+  }}
+
+
+
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        setPublisherIdError(false);
-        setTitleError(false);
-        setDescriptionError(false);
-        setPriceError(false);
-        setImageError(false);
-        setPublishedDateError(false);
-        setPageCountError(false);
-        setcurrentStockError(false);
-        setLanguageError(false);
 
-        console.log(book);
-
-        // Esta Validacion no es lo que debe ir, falta rutas del back "a modificar"
-        if (!book.publisherId || book.publisherId <= 0) {
-            return setPublisherIdError("Cargar ID Valida"); // ---> validar si no existe en BBDD
-        }
-
-        if (!book.title) {
-            return setTitleError("Ingrese un Titulo para su Libro");
-        }
-
-        if (!book.description) {
-            return setDescriptionError("Ingrese una Descripcion para su Libro");
-        }
-
-        if (!book.price || book.price === isNaN || book.price <= 0) {
-            return setPriceError("Ingrese un Precio correcto para su Libro");
-        }
-
-        if (!book.currentStock || book.currentStock <= 0) {
-            return setcurrentStockError("Ingrese un Stock correcto");
-        }
-        if (!patternURL.test(book.image)) {
-            return setImageError("Ingrese un formato correcro URL de imagen");
-        }
-
-        if (!book.pageCount || book.pageCount <= 0) {
-            return setPageCountError("Ingrese Cant. Paginas correctas");
-        }
 
         dispatch(uploadBook(book));
 
@@ -131,38 +126,9 @@ export default function NewRecipe() {
         history.push("/"); // ---> esta ruta debe volver al catalogo
     };
 
-    const handleSelectCategoryChange = (e) => {
-        for (let i of book.categories) {
-            if (Number(e.target.value) === i) {
-                return null;
-            }
-        }
-        setBook({
-            ...book,
-            categories: [...book.categories, Number(e.target.value)],
-        });
-    };
 
-    const handleSelectAuthorChange = (e) => {
-        for (let i of book.authors) {
-            if (Number(e.target.value) === i) {
-                return null;
-            }
-        }
-        setBook({
-            ...book,
-            authors: [...book.authors, Number(e.target.value)],
-        });
-    };
 
-    const handleSelectChange = (e) => {
-        setLanguageError(false);
 
-        setBook({
-            ...book,
-            [e.target.name]: e.target.value,
-        });
-    };
 
     const eliminarOpcion = (e) => {
         let filtrados = book.categories?.filter(
@@ -185,10 +151,22 @@ export default function NewRecipe() {
     };
 
     return (
+
+        <div>
+
+            <NavBar />
+            <NavBar2 />
+
+
+
         <div className={styles.containerFormu}>
+
+
             <h1 className={styles.titleFormu}>Nuevo Libro</h1>
             <form action="POST">
+
                 <div className={styles.containerInputs}>
+
                     <div className={styles.containerInput}>
                         <label>Id Editorial: </label>
                         {/* <input
@@ -199,6 +177,7 @@ export default function NewRecipe() {
                             className={styles.inputs}
                             onChange={handleInputsChange}
                         /> */}
+
                         <select
                             className={styles.inputs}
                             value={book.publisherId}
@@ -216,9 +195,11 @@ export default function NewRecipe() {
                                 ))}
                         </select>
                         *Campo Requerido
+
                         <div className={styles.danger}>
-                            {publisherIdError && <p>{publisherIdError}</p>}
+                            {errores.publisherId && <p>{errores.publisherId}</p>}
                         </div>
+
                     </div>
 
                     <div className={styles.containerInput}>
@@ -233,7 +214,7 @@ export default function NewRecipe() {
                         />
                         *Campo Requerido
                         <div className={styles.danger}>
-                            {titleError && <p>{titleError}</p>}
+                            {errores.title && <p>{errores.title }</p>}
                         </div>
                     </div>
 
@@ -249,7 +230,7 @@ export default function NewRecipe() {
                         />
                         *Campo Requerido
                         <div className={styles.danger}>
-                            {descriptionError && <p>{descriptionError}</p>}
+                            {errores.description && <p>{errores.description}</p>}
                         </div>
                     </div>
 
@@ -265,7 +246,7 @@ export default function NewRecipe() {
                         />
                         *Campo Requerido
                         <div className={styles.danger}>
-                            {priceError && <p>{priceError}</p>}
+                            {errores.price && <p>{errores.price}</p>}
                         </div>
                     </div>
 
@@ -281,7 +262,7 @@ export default function NewRecipe() {
                         />
                         *Campo Requerido
                         <div className={styles.danger}>
-                            {currentStockError && <p>{currentStockError}</p>}
+                            {errores.currentStock && <p>{errores.currentStock}</p>}
                         </div>
                     </div>
 
@@ -296,7 +277,7 @@ export default function NewRecipe() {
                             onChange={handleInputsChange}
                         />
                         <div className={styles.danger}>
-                            {imageError && <p>{imageError}</p>}
+                            {errores.image && <p>{errores.image}</p>}
                         </div>
                     </div>
 
@@ -311,7 +292,7 @@ export default function NewRecipe() {
                             onChange={handleInputsChange}
                         />
                         <div className={styles.danger}>
-                            {publishedDateError && <p>{publishedDateError}</p>}
+                            {errores.publishedDate && <p>{errores.publishedDate}</p>}
                         </div>
                     </div>
 
@@ -326,7 +307,7 @@ export default function NewRecipe() {
                             onChange={handleInputsChange}
                         />
                         <div className={styles.danger}>
-                            {pageCountError && <p>{pageCountError}</p>}
+                            {errores.pageCount && <p>{errores.pageCount}</p>}
                         </div>
                     </div>
 
@@ -336,7 +317,7 @@ export default function NewRecipe() {
                             name="languages"
                             value={book.language}
                             className={styles.inputs}
-                            onChange={handleSelectChange}
+                            onChange={handleInputsChange}
                         >
                             <option value="es">Español</option>
                             <option value="en">Ingles</option>
@@ -348,34 +329,38 @@ export default function NewRecipe() {
                         <label>Autores: </label>
                         <select
                             className={styles.inputs}
-                            // value={book.authors}
-                            // multiple
-                            // size="6"
                             name="authors"
-                            onChange={handleSelectAuthorChange}
+                            onChange={handleInputsChange}
                         >
-                            {allAuthors &&
-                                allAuthors.map((a) => (
-                                    <option key={a.name} value={a.id}>
-                                        {a.name}
-                                    </option>
-                                ))}
+                        <option disabled>Elegir autor</option>
+                            {
+                                allAuthors.map(authors => {
+                                   return( <option key={authors.id} id="authors" name="authors" value={authors.id}>
+                                        {authors.name}
+                                    </option>)
+                                })} 
                         </select>
                     </div>
 
                     <div className={styles.contenedorTypeSelected}>
-                        {book.authors?.map((t) => {
-                            let tipo = allAuthors.find((obj) => obj.id === t);
+
+                        {book.authors?.map((author) => {
+
+                            let autor = allAuthors?.map( a => {
+                                return a.id === author ? a.name: null
+                            })
+                            
+
                             return (
                                 <div
-                                    key={tipo.id}
+                                    key={author.id}
                                     className={styles.contenedortype}
                                 >
-                                    <p>{tipo.name}</p>
+                                    <p>{author.name}</p>
                                     <button
                                         className={styles.btnTypeSelected}
                                         type="button"
-                                        value={tipo.id}
+                                        value={author.id}
                                         onClick={(e) => eliminarAuthor(e)}
                                     >
                                         X
@@ -385,41 +370,45 @@ export default function NewRecipe() {
                         })}
                     </div>
 
+
                     <div className={styles.containerInput}>
                         <label>Categorias: </label>
                         <select
                             className={styles.inputs}
-                            // value={book.categories}
-                            // multiple
-                            // size="6"
                             name="categories"
-                            onChange={handleSelectCategoryChange}
+                            onChange={handleInputsChange}
                         >
                             <option disabled>Elegir:</option>
-                            {allCategories &&
-                                allCategories.map((c) => (
-                                    <option key={c.id} value={c.id}>
-                                        {c.name}
-                                    </option>
-                                ))}
+                            {allCategories.map((categories) => { 
+                              return(
+                                <option key={categories.id}  id="categories" name="categories" value={categories.id}>
+                                    {categories.name}
+                                </option>
+                              )}
+                                )}
                         </select>
                     </div>
 
+
+
                     <div className={styles.contenedorTypeSelected}>
-                        {book.categories?.map((t) => {
-                            let tipo = allCategories.find(
-                                (obj) => obj.id === t
-                            );
+                        {book.categories?.map((categoria) => {
+
+                            
+                            let categorias = allCategories?.map( c => {
+                                return c.id === categoria ? c.name: null
+                            })
+                            
                             return (
                                 <div
-                                    key={tipo.id}
+                                    key={categoria.id}
                                     className={styles.contenedortype}
                                 >
-                                    <p>{tipo.name}</p>
+                                    <p>{categoria.name}</p>
                                     <button
                                         className={styles.btnTypeSelected}
                                         type="button"
-                                        value={tipo.id}
+                                        value={categoria.id}
                                         onClick={(e) => eliminarOpcion(e)}
                                     >
                                         X
@@ -427,7 +416,7 @@ export default function NewRecipe() {
                                 </div>
                             );
                         })}
-                    </div>
+                    </div> 
 
                     <div className={styles.containerButtons}>
                         <button
@@ -446,6 +435,9 @@ export default function NewRecipe() {
                     </div>
                 </div>
             </form>
+            </div>
+
+            <Footer />
         </div>
     );
 }

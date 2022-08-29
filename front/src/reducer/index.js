@@ -23,6 +23,7 @@ const initialState = {
     authors: [],
     publishers: [],
     msg: [],
+    createBooks: [],
     page: 0,
     cantBooks: 0,
     status: "not-authenticated",
@@ -38,7 +39,7 @@ function rootReducer(state = initialState, action) {
         case GET_ALL_BOOKS:
             return {
                 ...state,
-                allBooks: action.payload,
+                createBooks: action.payload,
             };
 
         case GET_NAME_BOOKS:
@@ -74,7 +75,7 @@ function rootReducer(state = initialState, action) {
         case POST_BOOK:
             return {
                 ...state,
-                allBooks: [...state.allBooks, ...action.payload],
+                allBooks: action.payload,
             };
 
         case SET_PAGE:

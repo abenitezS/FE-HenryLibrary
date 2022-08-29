@@ -77,12 +77,19 @@ export function deleteBookDetail(id) {
   };
 }
 
-export function uploadBook(book) {
-  return function (dispatch) {
-    axios.post(`/catalog`, book).then((response) => {
-      dispatch({ type: POST_BOOK, payload: response.data });
-    });
-  };
+
+
+export function uploadBook(body) {
+  return async function (dispatch) {
+    try {
+      await axios.post("*/catalog", body);
+      return dispatch({
+        type: POST_BOOK
+      })
+    } catch (error) {
+      console.log("uploadBook", error)
+    }
+  }
 }
 
 export function getCategories() {
