@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { uploadBook, getAllAuthors, getCategories } from "../../actions";
+import { uploadBook, getAllAuthors, getCategories, getAllPublishers } from "../../actions";
 
 //CSS
 import styles from "./NewBook.module.css";
@@ -11,10 +11,12 @@ export default function NewRecipe() {
     const history = useHistory();
     const allAuthors = useSelector((state) => state.authors);
     const allCategories = useSelector((state) => state.categories);
+    const allPublishers = useSelector((state) => state.publishers);
 
     useEffect(() => {
         dispatch(getAllAuthors());
         dispatch(getCategories());
+        dispatch(getAllPublishers());
     }, [dispatch]);
 
     const [publisherIdError, setPublisherIdError] = useState(false);
@@ -173,14 +175,14 @@ export default function NewRecipe() {
     };
 
     const eliminarAuthor = (e) => {
-      let filtrados = book.authors?.filter(
-          (t) => t !== Number(e.target.value)
-      );
-      setBook({
-          ...book,
-          authors: filtrados,
-      });
-  };
+        let filtrados = book.authors?.filter(
+            (t) => t !== Number(e.target.value)
+        );
+        setBook({
+            ...book,
+            authors: filtrados,
+        });
+    };
 
     return (
         <div className={styles.containerFormu}>
@@ -189,14 +191,30 @@ export default function NewRecipe() {
                 <div className={styles.containerInputs}>
                     <div className={styles.containerInput}>
                         <label>Id Editorial: </label>
-                        <input
+                        {/* <input
                             placeholder="ingrese ID"
                             type="text"
                             name="publisherId"
                             value={book.publisherId}
                             className={styles.inputs}
                             onChange={handleInputsChange}
-                        />
+                        /> */}
+                        <select
+                            className={styles.inputs}
+                            value={book.publisherId}
+                            // multiple
+                            // size="6"
+                            name="publisherId"
+                            onChange={handleInputsChange}
+                        >
+                            <option disabled>Elegir:</option>
+                            {allPublishers &&
+                                allPublishers.map((a) => (
+                                    <option key={a.name} value={a.id}>
+                                        {a.name}
+                                    </option>
+                                ))}
+                        </select>
                         *Campo Requerido
                         <div className={styles.danger}>
                             {publisherIdError && <p>{publisherIdError}</p>}
@@ -347,9 +365,7 @@ export default function NewRecipe() {
 
                     <div className={styles.contenedorTypeSelected}>
                         {book.authors?.map((t) => {
-                            let tipo = allAuthors.find(
-                                (obj) => obj.id === t
-                            );
+                            let tipo = allAuthors.find((obj) => obj.id === t);
                             return (
                                 <div
                                     key={tipo.id}
