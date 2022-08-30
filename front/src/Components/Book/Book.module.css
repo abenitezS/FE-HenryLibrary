@@ -14,6 +14,11 @@ body{
 
 }
 
+.icono{
+    position: absolute;
+    background-color: #01A86C;
+    border-radius: 12px 11px 12px 12px;
+}
 
 .img{
     width: 15rem;
