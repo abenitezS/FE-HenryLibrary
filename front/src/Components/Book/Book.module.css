@@ -9,8 +9,9 @@ body{
     display: flex;
     flex-direction: column;
     width: 15rem;
-    height: 20rem;
+    height: 22rem;
     box-shadow: 0px 0px 10px  #D7D7CF;
+
 }
 
 
@@ -31,11 +32,13 @@ p{
 }
 
 .title{
+    height: 20%;
     font-family: Quicksand;
     font-weight: bolder;
     font-size: 15px;
     text-align: center;
     text-overflow: ellipsis;
+    align-content: center;
 }
 
 .authors{
