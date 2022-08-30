@@ -31,5 +31,17 @@ body{
 
 
 .iconos{
-    padding-right: 1rem;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 1rem;
+    width: 6%;
 }
+
+.banderas{
+    display: flex;
+
+}
+
+.bandera{
+    margin-left: 0.5rem;
+}    

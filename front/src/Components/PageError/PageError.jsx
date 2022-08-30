@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import NavBar2 from "../NavBar2/NavBar2";
+import Footer from "../Footer/Footer.jsx"
 
 
 import styles from "./PageError.module.css"
@@ -19,6 +20,7 @@ export default function PageError() {
         <div className={styles.imgItems}>
            <img className={styles.img} src={error404} alt="fondo" />
         </div>
+        <Footer />
     </div>
   
   );

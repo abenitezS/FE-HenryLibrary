@@ -11,7 +11,8 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCart2 } from "react-icons/bs";
 
 import styles from "./NavBar.module.css";
-
+import banderaArgentina from "./arg.png"
+import banderaEeuu from "./eeuu.png"
 
 
 
@@ -39,20 +40,20 @@ export default function NavBar() {
       <div className={styles.search}><SearchBar /></div>
 
       <div className={styles.iconos}>
-        <NavLink to="/favoritos"><MdOutlineFavoriteBorder /></NavLink>
+        <NavLink to="/favoritos"><MdOutlineFavoriteBorder size="1.4rem"/></NavLink>
+        
+        <button onClick={() => HandleOpenLogin()} > <VscAccount size="1.4rem"/></button>         
+        
+        <NavLink to="/carrito"><BsCart2 size="1.5rem"/></NavLink>
       </div>
 
-      <div className={styles.iconos}>
-        <button onClick={() => HandleOpenLogin()} > <VscAccount /></button>         
-      </div>
 
-      <div className={styles.iconos}>
-        <NavLink to="/carrito"><BsCart2 /></NavLink>
-      </div>
 
-      <button>BanderaParaIdioma</button>
-      {/* Texto rovisorio hasta que hagamos la funcion de idiomas */}
-
+     <div className={styles.banderas}>
+      <button className={styles.bandera}><img src={banderaArgentina} alt=""/></button> 
+      
+      <button className={styles.bandera}><img src={banderaEeuu} alt=""/></button>
+    </div>
       
       {loginModal && (
         <Login
