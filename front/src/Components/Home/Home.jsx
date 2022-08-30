@@ -34,6 +34,8 @@ export default function Home() {
       <NavBar />
       <NavBar2 />
 
+      {allBooks.length > 0 ? (
+        <>
       <div className={styles.banner}>
         <img src={banner} alt="banner" />
       </div>
@@ -68,6 +70,14 @@ export default function Home() {
             ))}
         </div>
       </div>
+      
+      </>) 
+       : (<div className={styles.ErrorSearch}>
+        <h3 className={styles.errorH3}>
+          NO SE ENCONTRO NADA CON ESE NOMBRE
+        <h3>INTENTE NUEVAMENTE</h3>
+        </h3>
+        </div>) }
 
       <Footer />
     </div>
