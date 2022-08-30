@@ -77,6 +77,7 @@ export function deleteBookDetail(id) {
 }
 
 export function uploadBook(book) {
+  console.log(book);
     return function (dispatch) {
         axios
             .post(`/catalogue`, book)
@@ -162,7 +163,7 @@ export function deleteLogicBook(id) {
 export function getBooksByAuthor(idAutor) {
     return function (dispatch) {
         axios
-            .get(`/author/${idAutor}/books`)
+            .get(`/authors/${idAutor}/books`)
             .then((response) => {
                 dispatch({
                     type: SET_ALL_BOOKS_BY_AUTHOR,
