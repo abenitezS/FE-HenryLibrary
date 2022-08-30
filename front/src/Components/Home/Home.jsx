@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllBooks } from "../../actions/index.js";
+import { getAllBooks, getBooksCount } from "../../actions/index.js";
 
 //COMPONENTES
 import NavBar from "../NavBar/NavBar.jsx";
@@ -22,19 +22,29 @@ export default function Home() {
 
     const location = useLocation();
     const search = location.state ? location.state.search : null;
+    const [page, setPage] = useState(0);
+    const itemsPorPagina = 12;
+    const offset = page * itemsPorPagina;
+    const limit = offset + itemsPorPagina;
 
     useEffect(() => {
+        // dispatch(getBooksCount());
         !search && dispatch(getAllBooks());
     }, [dispatch, search]);
 
     console.log("allBooks", allBooks);
+    const currentBooks = allBooks.slice(offset, limit);
+
+    // const handleGetAllBooks = (page) => {
+    //     dispatch(getAllBooks(page))
+    // }
 
     return (
         <div className={styles.home}>
             <NavBar />
             <NavBar2 />
 
-            {allBooks.length > 0 ? (
+            {currentBooks.length > 0 ? (
                 <>
                     <div className={styles.banner}>
                         <img src={banner} alt="banner" />
@@ -46,7 +56,12 @@ export default function Home() {
                     </div>
 
                     <div className={styles.paginado}>
-                        <Paginated />
+                    <Paginated
+                        page={page}
+                        totalItems={allBooks.length}
+                        itemsPorPagina={itemsPorPagina}
+                        setPage={setPage}
+                    />
                     </div>
 
                     <div className={styles.cuerpo}>
@@ -56,8 +71,8 @@ export default function Home() {
                         </div>
 
                         <div className={styles.cards}>
-                            {allBooks &&
-                                allBooks.map((b) => (
+                            {currentBooks &&
+                                currentBooks.map((b) => (
                                     <Book
                                         key={b.id}
                                         id={b.id}

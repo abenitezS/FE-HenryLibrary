@@ -12,7 +12,6 @@ export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
 export const GET_ALL_BOOKS_BY_CATEGORY = "GET_ALL_BOOKS_BY_CATEGORY";
 export const POST_BOOK = "POST_BOOK";
 export const SET_PAGE = "SET_PAGE";
-export const GET_BOOKS_COUNT = "GET_BOOKS_COUNT";
 export const BANNED_BOOK = "BANNED_BOOK";
 export const DELETE_LOGICO_BOOK = "DELETE_LOGICO_BOOK";
 export const SET_ALL_BOOKS_BY_AUTHOR = "GET_ALL_BOOKS_BY_AUTHOR";
@@ -125,22 +124,6 @@ export function getBooksByCategory(idCategory) {
 export function setPage(page) {
     return function (dispatch) {
         dispatch({ type: SET_PAGE, payload: page });
-    };
-}
-
-export function getBooksCount() {
-    return function (dispatch) {
-        axios
-            .get(`/catalog/contar/1`)
-            .then((response) => {
-                dispatch({
-                    type: GET_BOOKS_COUNT,
-                    payload: response.data,
-                });
-            })
-            .catch((error) => {
-                console.log("getBooksCount", error);
-            });
     };
 }
 
