@@ -86,19 +86,19 @@ export default function AboutUs() {
 
       <div className={styles.contenedor}>
          <img className={styles.img} src="" alt="foto"/>
-        <h2>A. FELIPE YEPES</h2>
+        <h2 className={styles.nombre}>A. FELIPE YEPES</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       <div className={styles.contenedor}>
          <img className={styles.img} src="" alt="foto"/>
-        <h2>GABRIEL MARZIOLI</h2>
+        <h2 className={styles.nombre}>GABRIEL MARZIOLI</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       <div className={styles.contenedor}>
          <img className={styles.img} src="" alt="foto"/>
-        <h2>GUSTAVO ENCINAS</h2>
+        <h2 className={styles.nombre}>GUSTAVO ENCINAS</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
