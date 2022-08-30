@@ -35,7 +35,7 @@ export default function Home() {
     }, [dispatch, search]);
 
 
-    console.log("allBooks", allBooks);
+    // console.log("allBooks", allBooks);
     const currentBooks = allBooks.length > 0 && allBooks.slice(offset, limit)
 
     // const handleGetAllBooks = (page) => {

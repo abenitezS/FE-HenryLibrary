@@ -11,7 +11,7 @@ export default function Paginated(props) {
     // const dispatch = useDispatch();
     // const { cantBooks, page: actualPage } = useSelector((state) => state);
     const cantPaginas = Math.ceil(totalItems / itemsPorPagina) - 1;
-    console.log(totalItems, actualPage);
+    // console.log(totalItems, actualPage);
     const pageNumbers = [];
 
     // useEffect(() => {

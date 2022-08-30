@@ -28,11 +28,11 @@ export default function BookDetail() {
     useEffect(() => {
         dispatch(getBooksId(id));
 
-        console.log("el componente se monto");
+        // console.log("el componente se monto");
 
         return () => {
             dispatch(deleteBookDetail(id));
-            console.log("el componente se desmonto");
+            // console.log("el componente se desmonto");
             //TENGO QUE DESMONTAR EL COMPONENTE SINO ME QUEDA AHI COLGADO
         };
     }, [dispatch, id]);
@@ -47,14 +47,14 @@ export default function BookDetail() {
     }
 
     function handleClickCarrito() {
-        console.log("agregado");
+        // console.log("agregado");
     }
 
     function handleClickModal() {
         setModal(!modal)
     }
 
-    console.log(bookDetail);
+    // console.log(bookDetail);
 
     return (
         <div className={styles.detail}>
