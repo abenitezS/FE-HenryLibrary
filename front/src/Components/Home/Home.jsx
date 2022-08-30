@@ -36,7 +36,7 @@ export default function Home() {
 
 
     console.log("allBooks", allBooks);
-    const currentBooks = allBooks.length > 1 && allBooks.slice(offset, limit)
+    const currentBooks = allBooks.length > 0 && allBooks.slice(offset, limit)
 
     // const handleGetAllBooks = (page) => {
     //     dispatch(getAllBooks(page))
@@ -94,8 +94,7 @@ export default function Home() {
 
            
             
-            :  
-            // (<Loading />)
+            :
             ( 
                 allBooks.message ? 
 
