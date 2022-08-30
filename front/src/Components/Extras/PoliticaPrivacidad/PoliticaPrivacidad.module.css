@@ -13,8 +13,30 @@ body{
 }
 
 .titulo{
-    margin-top: 4rem;
-    text-align: center;
+    width: 60%;
+    height: 50%;
+    margin-top: 6rem;
+    margin-left: 19rem;
+    justify-content: center;
+}
+
+.tituloH3{
+    text-align: justify;
     font-family: Quicksand;
     font-size: 15px;
+    margin-top: 1rem;
+}
+
+.boton{
+    width: 30%;
+    height: 20%;
+    margin-top: 5rem;
+    margin-left: 20rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botonArriba{
+    cursor: pointer;
+
 }

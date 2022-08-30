@@ -43,7 +43,7 @@ export default function CardsAuthor() {
 
           <div className={styles.info}>
           <h2 className={styles.titulo}>{a.title}</h2>
-          <h4 className={styles.infoItem}>{a.authors && a.authors.map(a => `Authores: ${a.name}`)}</h4>
+          <h4 className={styles.infoItem}>{a.authors && a.authors.map(a => `Autores: ${a.name}`)}</h4>
 
 
           <div className={styles.pago}> 
