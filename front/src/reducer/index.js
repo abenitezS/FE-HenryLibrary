@@ -14,6 +14,7 @@ import {
     SET_AUTHOR_BY_NAME,
     GET_ALL_AUTHORS,
     GET_ALL_PUBLISHERS,
+    EMPTY_AUTHORS,
 } from "../actions/index";
 
 const initialState = {
@@ -124,6 +125,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 publishers: action.payload,
+            };
+
+        case EMPTY_AUTHORS:
+            return {
+                ...state,
+                authors: [],
             };
 
         default:
