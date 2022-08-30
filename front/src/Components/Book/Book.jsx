@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 //CSS
 import styles from "./Book.module.css";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+
 
 
 export default function Book({ id, title, authors, image, price, stock }) {
@@ -13,11 +13,14 @@ export default function Book({ id, title, authors, image, price, stock }) {
     <div className={styles.book}>
 
       {/* ACA VA FAVORITOS */}
-      {/* <button onClick={""}><MdOutlineFavoriteBorder className={styles.icono} size="1.5rem" /></button> */}
+      <div className={styles.imagenes}>
+      <button className={styles.icono} onClick={""}>AGREGAR A FAVORITOS</button>
 
       <NavLink to={`/catalog/detail/${id}`}>
         <img className={styles.img} src={image} alt="imagenDelLibro" />
       </NavLink>
+
+      </div>
 
       <p className={styles.title}>{title}</p>
       <h4 className={styles.authors}>{authors && authors.map(a => `Autor: ${a.name}`)}</h4>
