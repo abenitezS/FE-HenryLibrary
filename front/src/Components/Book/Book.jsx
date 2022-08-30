@@ -3,10 +3,18 @@ import { NavLink } from "react-router-dom";
 
 //CSS
 import styles from "./Book.module.css";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+
 
 export default function Book({ id, title, authors, image, price, stock }) {
+
+
   return (
     <div className={styles.book}>
+
+      {/* ACA VA FAVORITOS */}
+      <button onClick={""}><MdOutlineFavoriteBorder className={styles.icono} size="1.5rem" /></button>
+
       <NavLink to={`/catalog/detail/${id}`}>
         <img className={styles.img} src={image} alt="imagenDelLibro" />
       </NavLink>
