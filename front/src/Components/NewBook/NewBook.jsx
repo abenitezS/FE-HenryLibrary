@@ -44,7 +44,7 @@ export default function NewRecipe() {
         publishedDate: "",
         pageCount: 1,
         currentStock: 0,
-        languages: "",
+        language: "",
         authors: [],
         categories: [],
     });
@@ -281,7 +281,7 @@ export default function NewRecipe() {
                         <label>Lenguaje: </label>
                         <select
                             name="languages"
-                            value={book.languages}
+                            value={book.language}
                             className={styles.inputs}
                             onChange={handleInputsChange}
                             // defaultValue="default"
