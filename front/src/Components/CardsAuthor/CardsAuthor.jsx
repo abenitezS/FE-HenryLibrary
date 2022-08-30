@@ -2,9 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooksByAuthor } from "../../actions";
 import { useParams, NavLink } from "react-router-dom";
+
+//COMPONENTES
 import NavBar from "../NavBar/NavBar";
 import NavBar2 from "../NavBar2/NavBar2";
 import Footer from "../Footer/Footer";
+
+//CSS
+import styles from "./CardsAuthor.module.css"
 
 export default function CardsAuthor() {
   const dispatch = useDispatch();
@@ -21,14 +26,17 @@ export default function CardsAuthor() {
 
 
   return (
-    <div>
+    <div className={styles.container}>
         <NavBar />
         <NavBar2 />
 
+
+
       {allBooks?.map((a) => (
-        <div key={a.id}>
+
+        <div className={styles.CardsAuthor} key={a.id}>
           <NavLink to={`/catalog/detail/${a.id}`}>
-            <img src={a.image} alt="imagenDelLibro" />
+            <img className={styles.img} src={a.image} alt="imagenDelLibro" />
           </NavLink>
 
           <h2>{a.title}</h2>
@@ -46,6 +54,8 @@ export default function CardsAuthor() {
           )}
         </div>
       ))}
+
+
 
       <Footer />
     </div>

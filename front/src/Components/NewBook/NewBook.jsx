@@ -36,7 +36,7 @@ export default function NewRecipe() {
     //ESTADO DEL FORMULARIO
 
     const [book, setBook] = useState({
-        publisherId: 1,
+        publisherId: 0,
         title: "",
         description: "",
         price: 1.0,
@@ -44,10 +44,9 @@ export default function NewRecipe() {
         publishedDate: "",
         pageCount: 1,
         currentStock: 0,
-        language: "",
+        languages: "",
         authors: [],
         categories: [],
-        lenguage: ""
     });
 
 
@@ -105,7 +104,7 @@ export default function NewRecipe() {
         dispatch(uploadBook(book));
 
         setBook({
-            publisherId: 1,
+            publisherId: 0,
             title: "",
             description: "",
             price: 1.0,
@@ -117,6 +116,7 @@ export default function NewRecipe() {
             isBanned: false,
             authors: [],
             categories: [],
+            lenguages: ""
         });
         alert("Libro creado Exitosamente!");
     };
@@ -167,40 +167,6 @@ export default function NewRecipe() {
 
                 <div className={styles.containerInputs}>
 
-                    <div className={styles.containerInput}>
-                        <label>Id Editorial: </label>
-                        {/* <input
-                            placeholder="ingrese ID"
-                            type="text"
-                            name="publisherId"
-                            value={book.publisherId}
-                            className={styles.inputs}
-                            onChange={handleInputsChange}
-                        /> */}
-
-                        <select
-                            className={styles.inputs}
-                            value={book.publisherId}
-                            // multiple
-                            // size="6"
-                            name="publisherId"
-                            onChange={handleInputsChange}
-                        >
-                            <option disabled>Elegir:</option>
-                            {allPublishers &&
-                                allPublishers.map((a) => (
-                                    <option key={a.name} value={a.id}>
-                                        {a.name}
-                                    </option>
-                                ))}
-                        </select>
-                        *Campo Requerido
-
-                        <div className={styles.danger}>
-                            {errores.publisherId && <p>{errores.publisherId}</p>}
-                        </div>
-
-                    </div>
 
                     <div className={styles.containerInput}>
                         <label>Titulo: </label>
@@ -315,10 +281,12 @@ export default function NewRecipe() {
                         <label>Lenguaje: </label>
                         <select
                             name="languages"
-                            value={book.language}
+                            value={book.languages}
                             className={styles.inputs}
                             onChange={handleInputsChange}
+                            // defaultValue="default"
                         >
+                            {/* <option >Elegir lenguaje</option> */}
                             <option value="es">Español</option>
                             <option value="en">Ingles</option>
                             <option value="pt">Portugues</option>
@@ -331,8 +299,9 @@ export default function NewRecipe() {
                             className={styles.inputs}
                             name="authors"
                             onChange={handleInputsChange}
+                            defaultValue="default"
                         >
-                        <option disabled>Elegir autor</option>
+                        <option value="default">Elegir autor</option>
                             {
                                 allAuthors.map(authors => {
                                    return( <option key={authors.id} id="authors" name="authors" value={authors.id}>
@@ -377,8 +346,9 @@ export default function NewRecipe() {
                             className={styles.inputs}
                             name="categories"
                             onChange={handleInputsChange}
+                            defaultValue="default"
                         >
-                            <option disabled>Elegir:</option>
+                            <option value="default">Elegir categorias</option>
                             {allCategories.map((categories) => { 
                               return(
                                 <option key={categories.id}  id="categories" name="categories" value={categories.id}>
@@ -417,6 +387,33 @@ export default function NewRecipe() {
                             );
                         })}
                     </div> 
+
+                    <div className={styles.containerInput}>
+                        <label>Editorial: </label>
+
+
+                        <select
+                            className={styles.inputs}
+                            value={book.publisherId}
+                            name="publisherId"
+                            onChange={handleInputsChange}
+                            defaultValue="default"
+                        >
+                            <option value="default">Elegir editorial</option>
+                            {allPublishers &&
+                                allPublishers.map((a) => (
+                                    <option key={a.name} value={a.id}>
+                                        {a.name}
+                                    </option>
+                                ))}
+                        </select>
+                        *Campo Requerido
+
+                        <div className={styles.danger}>
+                            {errores.publisherId && <p>{errores.publisherId}</p>}
+                        </div>
+
+                    </div>
 
                     <div className={styles.containerButtons}>
                         <button
