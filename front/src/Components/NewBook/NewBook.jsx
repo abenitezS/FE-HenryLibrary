@@ -81,7 +81,7 @@ export default function NewRecipe() {
                 })
             );
 
-            errores === {} ? setChecked(false) : setChecked(true);
+            Object.keys(errores).length === 0 ? setChecked(false) : setChecked(true);
         }
     }
 
