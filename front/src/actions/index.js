@@ -166,7 +166,7 @@ export function getBooksByAuthor(idAutor) {
             .then((response) => {
                 dispatch({
                     type: SET_ALL_BOOKS_BY_AUTHOR,
-                    payload: response.data,
+                    payload: response.data.books,
                 });
             })
             .catch((error) => {
