@@ -112,7 +112,7 @@ export function getBooksByCategory(idCategory) {
             .then((response) => {
                 dispatch({
                     type: GET_ALL_BOOKS_BY_CATEGORY,
-                    payload: response.data,
+                    payload: response.data.books,
                 });
             })
             .catch((error) => {
