@@ -5,9 +5,14 @@ import NavBar2 from "../../NavBar2/NavBar2.jsx";
 import Footer from "../../Footer/Footer.jsx";
 
 //FOTOS
-import alicia from "./alicia.jpg"
-import hernan from "./hernan.jpg"
-import pablo from "./pablo.jpg"
+import alicia from "./fotos/alicia.jpg"
+import hernan from "./fotos/hernan.jpg"
+import pablo from "./fotos/pablo.jpg"
+import flor from "./fotos/flor.jpg"
+import jova from "./fotos/jova.jpg"
+import gabriel from "./fotos/gabriel.jpg"
+
+
 
 export default function AboutUs() {
   return (
@@ -52,11 +57,20 @@ export default function AboutUs() {
 
       <div><h2 className={styles.titulo}>CREADORES</h2></div>
 
+
       <div className={styles.creadores}>
 
+      
+
       <div className={styles.contenedor}>
-         <img className={styles.img} src="" alt="foto"/>
-        <h2 className={styles.nombre}>M. FLORENCIA OLDANI</h2>
+        <img className={styles.img} src={jova} alt="foto"/>
+        <h2 className={styles.nombre}>JOVANA DAVALILLO</h2>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
+      </div>
+
+      <div className={styles.contenedor}>
+        <img className={styles.img} src={flor} alt="foto"/>
+        <h2 className={styles.nombre}>FLORENCIA OLDANI</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
@@ -79,19 +93,13 @@ export default function AboutUs() {
       </div>
 
       <div className={styles.contenedor}>
-         <img className={styles.img} src="" alt="foto"/>
-        <h2 className={styles.nombre}>JOVANA DAVALILLO</h2>
-        <h3 className={styles.funcion}>Full Stack Developer</h3>
-      </div>
-
-      <div className={styles.contenedor}>
-         <img className={styles.img} src="" alt="foto"/>
+        <img className={styles.img} src="" alt="foto"/>
         <h2 className={styles.nombre}>A. FELIPE YEPES</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       <div className={styles.contenedor}>
-         <img className={styles.img} src="" alt="foto"/>
+        <img className={styles.img} src={gabriel} alt="foto"/>
         <h2 className={styles.nombre}>GABRIEL MARZIOLI</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>

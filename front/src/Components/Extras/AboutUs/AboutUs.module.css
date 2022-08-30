@@ -40,9 +40,9 @@ body {
 .creadores {
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 85%;
     height: 70%;
-    margin-left: 8rem;
+    margin-left: 7rem;
     margin-bottom: 3rem;
     margin-top: 2rem;
 }
