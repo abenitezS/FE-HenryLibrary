@@ -11,6 +11,7 @@ import pablo from "./fotos/pablo.jpg"
 import flor from "./fotos/flor.jpg"
 import jova from "./fotos/jova.jpg"
 import gabriel from "./fotos/gabriel.jpg"
+import gustavo from "./fotos/gustavo.jpg"
 
 
 
