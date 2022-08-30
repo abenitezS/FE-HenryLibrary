@@ -55,3 +55,26 @@ body{
     justify-content: space-around;
     gap: 1.5rem
 }
+
+
+
+
+
+
+/* ERROR SEARCH */
+.ErrorSearch{
+  margin-top: 6rem;
+  margin-left: 13rem;
+  display: flex;
+  width: 70%;
+  height: 18rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorH3{
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    color: #01A86C;
+}
