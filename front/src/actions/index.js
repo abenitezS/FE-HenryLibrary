@@ -77,7 +77,6 @@ export function deleteBookDetail(id) {
 }
 
 export function uploadBook(book) {
-  console.log(book);
     return function (dispatch) {
         axios
             .post(`/catalogue`, book)

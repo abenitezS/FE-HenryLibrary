@@ -17,7 +17,7 @@ export default function CardsAuthor() {
 
   const allBooks = useSelector((state) => state.allBooks);
 
-  console.log(allBooks);
+  // console.log(allBooks);
 
   useEffect(() => {
     dispatch(getBooksByAuthor(id));
