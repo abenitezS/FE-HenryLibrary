@@ -13,7 +13,7 @@ export default function Book({ id, title, authors, image, price, stock }) {
     <div className={styles.book}>
 
       {/* ACA VA FAVORITOS */}
-      <button onClick={""}><MdOutlineFavoriteBorder className={styles.icono} size="1.5rem" /></button>
+      {/* <button onClick={""}><MdOutlineFavoriteBorder className={styles.icono} size="1.5rem" /></button> */}
 
       <NavLink to={`/catalog/detail/${id}`}>
         <img className={styles.img} src={image} alt="imagenDelLibro" />
