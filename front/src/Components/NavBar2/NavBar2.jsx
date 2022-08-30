@@ -16,10 +16,10 @@ export default function NavBar2() {
         {/* <NavLink to="/nuevoLibroChakra">Nuevo Libro Chakra</NavLink> */}
       </h3>
       <h3 className={styles.h3}>
-        <NavLink to="">Sobre Nosotros</NavLink>
+        <NavLink to="">Ofertas</NavLink>
       </h3>
       <h3 className={styles.h3}>
-        <NavLink to="">Ofertas</NavLink>
+        <NavLink to="/aboutUs">Sobre Nosotros</NavLink>
       </h3>
     </nav>
   );

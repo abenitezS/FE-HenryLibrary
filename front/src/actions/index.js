@@ -23,10 +23,10 @@ export const EMPTY_AUTHORS = "EMPTY_AUTHORS";
 export function getAllBooks(pagina = 0, items = 10) {
     return function (dispatch) {
         axios
-            .get(`/catalog?pagina=${pagina}&items=${items}`)
+            .get(`/catalogue?pagina=${pagina}&items=${items}`)
             .then((response) => {
                 dispatch({
-                    type: "GET_ALL_BOOKS",
+                    type: GET_ALL_BOOKS,
                     payload: response.data,
                 });
             })
@@ -39,10 +39,10 @@ export function getAllBooks(pagina = 0, items = 10) {
 export function getNameBooks(title) {
     return function (dispatch) {
         axios
-            .get(`/catalog?title=${title}`)
+            .get(`/catalogue?title=${title}`)
             .then((response) => {
                 dispatch({
-                    type: "GET_NAME_BOOKS",
+                    type: GET_NAME_BOOKS,
                     payload: response.data,
                 });
             })
@@ -55,10 +55,10 @@ export function getNameBooks(title) {
 export function getBooksId(id) {
     return function (dispatch) {
         axios
-            .get(`/catalog/${id}`)
+            .get(`/catalogue/${id}`)
             .then((response) => {
                 dispatch({
-                    type: "GET_BOOKS_ID",
+                    type: GET_BOOKS_ID,
                     payload: response.data,
                 });
             })
@@ -71,7 +71,7 @@ export function getBooksId(id) {
 export function deleteBookDetail(id) {
     //--> Lo utilizo para desmontar el componente de detalle
     return {
-        type: "DELETE_BOOKS_DETAIL",
+        type: DELETE_BOOKS_DETAIL,
         payload: id,
     };
 }
@@ -79,7 +79,7 @@ export function deleteBookDetail(id) {
 export function uploadBook(book) {
     return function (dispatch) {
         axios
-            .post(`/catalog`, book)
+            .post(`/catalogue`, book)
             .then((response) => {
                 dispatch({ type: POST_BOOK, payload: response.data });
             })
@@ -108,11 +108,11 @@ export function getCategories() {
 export function getBooksByCategory(idCategory) {
     return function (dispatch) {
         axios
-            .get(`/catalog/category/${idCategory}`)
+            .get(`/categories/${idCategory}/books`)
             .then((response) => {
                 dispatch({
                     type: GET_ALL_BOOKS_BY_CATEGORY,
-                    payload: response.data,
+                    payload: response.data.books,
                 });
             })
             .catch((error) => {
@@ -146,10 +146,10 @@ export function bannedBook(id) {
 export function deleteLogicBook(id) {
     return function (dispatch) {
         axios
-            .put(`/catalog/delete/${id}`)
+            .delete(`/catalog/${id}`)
             .then((response) => {
                 dispatch({
-                    type: "DELETE_LOGICO_BOOK",
+                    type: DELETE_LOGICO_BOOK,
                     payload: response.data,
                 });
             })
@@ -162,11 +162,11 @@ export function deleteLogicBook(id) {
 export function getBooksByAuthor(idAutor) {
     return function (dispatch) {
         axios
-            .get(`/catalog/author/${idAutor}`)
+            .get(`/author/${idAutor}/books`)
             .then((response) => {
                 dispatch({
                     type: SET_ALL_BOOKS_BY_AUTHOR,
-                    payload: response.data,
+                    payload: response.data.books,
                 });
             })
             .catch((error) => {

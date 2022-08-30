@@ -15,10 +15,12 @@ import Paginated from "../Paginated/Paginated.jsx";
 //CSS
 import styles from "./Home.module.css";
 import banner from "./banner.jpg";
+import Loading from "../Loading/Loading.jsx";
 
 export default function Home() {
     const dispatch = useDispatch();
     const allBooks = useSelector((state) => state.allBooks);
+
 
     const location = useLocation();
     const search = location.state ? location.state.search : null;
@@ -32,12 +34,14 @@ export default function Home() {
         !search && dispatch(getAllBooks());
     }, [dispatch, search]);
 
+
     console.log("allBooks", allBooks);
-    const currentBooks = allBooks.slice(offset, limit);
+    const currentBooks = allBooks.length > 0 && allBooks.slice(offset, limit)
 
     // const handleGetAllBooks = (page) => {
     //     dispatch(getAllBooks(page))
     // }
+
 
     return (
         <div className={styles.home}>
@@ -86,16 +90,27 @@ export default function Home() {
                         </div>
                     </div>
                 </>
-            ) : (
-                <div className={styles.ErrorSearch}>
-                    <h3 className={styles.errorH3}>
-                        NO SE ENCONTRO NADA CON ESE NOMBRE
-                    </h3>
-                    <h3>INTENTE NUEVAMENTE</h3>
-                </div>
-            )}
+            ) 
 
-            <Footer />
+           
+            
+            :
+            ( 
+                allBooks.message ? 
+
+                <div className={styles.ErrorSearch}>
+                    <h3 className={styles.errorH3}>{allBooks.message}</h3>
+
+                </div> 
+                
+                : 
+                
+                <Loading />
+
+            )
+            }
+
+             <Footer />
         </div>
     );
 }
