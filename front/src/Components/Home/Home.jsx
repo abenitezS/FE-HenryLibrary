@@ -21,6 +21,7 @@ export default function Home() {
     const dispatch = useDispatch();
     const allBooks = useSelector((state) => state.allBooks);
 
+
     const location = useLocation();
     const search = location.state ? location.state.search : null;
     const [page, setPage] = useState(0);
@@ -33,16 +34,14 @@ export default function Home() {
         !search && dispatch(getAllBooks());
     }, [dispatch, search]);
 
-<<<<<<< HEAD
-    console.log("allBooks", allBooks.message);
-=======
+
     console.log("allBooks", allBooks);
-    const currentBooks = allBooks.slice(offset, limit);
+    const currentBooks = allBooks.length > 1 && allBooks.slice(offset, limit)
 
     // const handleGetAllBooks = (page) => {
     //     dispatch(getAllBooks(page))
     // }
->>>>>>> 3b1fd68d0cad883720d6a244b148466eab699073
+
 
     return (
         <div className={styles.home}>
@@ -95,7 +94,11 @@ export default function Home() {
 
            
             
-            : ( allBooks.message ? 
+            :  
+            // (<Loading />)
+            ( 
+                allBooks.message ? 
+
                 <div className={styles.ErrorSearch}>
                     <h3 className={styles.errorH3}>{allBooks.message}</h3>
 
@@ -105,9 +108,10 @@ export default function Home() {
                 
                 <Loading />
 
-            )}
+            )
+            }
 
-            <Footer />
+             <Footer />
         </div>
     );
 }
