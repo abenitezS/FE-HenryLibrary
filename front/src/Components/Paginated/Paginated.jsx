@@ -4,23 +4,24 @@ import { getAllBooks, getBooksCount, setPage } from "../../actions";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 
 //CSS
-import styles from "./Paginated.module.css";
+// import styles from "./Paginated.module.css";
 
-export default function Paginated() {
-    const dispatch = useDispatch();
-    const { cantBooks, page: actualPage } = useSelector((state) => state);
-    const itemsPorPagina = 10;
-    const cantPaginas = Math.ceil(cantBooks / itemsPorPagina) - 1;
-
+export default function Paginated(props) {
+    const { totalItems, itemsPorPagina, page: actualPage, setPage } = props;
+    // const dispatch = useDispatch();
+    // const { cantBooks, page: actualPage } = useSelector((state) => state);
+    const cantPaginas = Math.ceil(totalItems / itemsPorPagina) - 1;
+    console.log(totalItems, actualPage);
     const pageNumbers = [];
 
-    useEffect(() => {
-        dispatch(getBooksCount());
-    }, [dispatch, cantBooks]);
+    // useEffect(() => {
+    //     dispatch(getBooksCount());
+    // }, [dispatch, cantBooks]);
 
     function handleChangePage(page) {
-        dispatch(setPage(page));
-        dispatch(getAllBooks(page));
+        // dispatch(setPage(page));
+        // getBooks(page);
+        setPage(page);
     }
 
     function paginate(pageActual, cantPaginas) {
@@ -28,15 +29,15 @@ export default function Paginated() {
         let end;
         let numeros = [];
 
-        if (pageActual - 2 >= 0) start = actualPage - 2
-        else if (pageActual - 1 >= 0) start = actualPage - 1
+        if (pageActual - 2 >= 0) start = actualPage - 2;
+        else if (pageActual - 1 >= 0) start = actualPage - 1;
         else start = actualPage;
 
         end = start + 4 <= cantPaginas ? start + 4 : cantPaginas;
 
         if (end - start !== 4) {
             let diferencia = end === actualPage ? 2 : end - actualPage;
-            start = start - diferencia < 0 ? 0 : start -= diferencia;
+            start = start - diferencia < 0 ? 0 : (start -= diferencia);
         }
 
         for (let i = start; i <= end; i++) {
