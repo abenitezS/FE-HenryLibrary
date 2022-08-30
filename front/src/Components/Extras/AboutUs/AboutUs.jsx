@@ -57,38 +57,49 @@ export default function AboutUs() {
       <div className={styles.contenedor}>
          <img className={styles.img} src="" alt="foto"/>
         <h2 className={styles.nombre}>M. FLORENCIA OLDANI</h2>
-        <h3 className={styles.funcion}>Developed Full Stack</h3>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       <div className={styles.contenedor}>
          <img className={styles.img} src={pablo} alt="foto"/>
         <h2 className={styles.nombre}>PABLO SZEJPIACKI</h2>
-        <h3 className={styles.funcion}>Developed Full Stack</h3>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       <div className={styles.contenedor}>
          <img className={styles.img} src={hernan} alt="foto"/>
-        <h2 className={styles.nombre}>HERNAN CAUSSO</h2>
-        <h3 className={styles.funcion}>Developed Full Stack</h3>
+        <h2 className={styles.nombre}>HERNAN CAMUSSO</h2>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
-
       
       <div className={styles.contenedor}>
          <img className={styles.img} src={alicia} alt="foto"/>
         <h2 className={styles.nombre}>ALICIA BENITEZ</h2>
-        <h3 className={styles.funcion}>Developed Full Stack</h3>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       <div className={styles.contenedor}>
          <img className={styles.img} src="" alt="foto"/>
         <h2 className={styles.nombre}>JOVANA DAVALILLO</h2>
-        <h3 className={styles.funcion}>Developed Full Stack</h3>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       <div className={styles.contenedor}>
          <img className={styles.img} src="" alt="foto"/>
-        <h2>FELIPE YEPES</h2>
-        <h3 className={styles.funcion}>Developed Full Stack</h3>
+        <h2>A. FELIPE YEPES</h2>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
+      </div>
+
+      <div className={styles.contenedor}>
+         <img className={styles.img} src="" alt="foto"/>
+        <h2>GABRIEL MARZIOLI</h2>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
+      </div>
+
+      <div className={styles.contenedor}>
+         <img className={styles.img} src="" alt="foto"/>
+        <h2>GUSTAVO ENCINAS</h2>
+        <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
 
       </div>
