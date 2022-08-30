@@ -19,6 +19,7 @@ export const SET_ALL_BOOKS_BY_AUTHOR = "GET_ALL_BOOKS_BY_AUTHOR";
 export const SET_AUTHOR_BY_NAME = "GET_AUTHOR_BY_NAME";
 export const GET_ALL_AUTHORS = "GET_ALL_AUTHORS";
 export const GET_ALL_PUBLISHERS = "GET_ALL_PUBLISHERS";
+export const EMPTY_AUTHORS = "EMPTY_AUTHORS";
 
 export function getAllBooks(pagina = 0, items = 10) {
     return function (dispatch) {
@@ -240,5 +241,11 @@ export function getAllPublishers() {
             .catch((error) => {
                 console.log("getAllPublishers", error);
             });
+    };
+}
+
+export function emptyAuthors() {
+    return function (dispatch) {
+        dispatch({ type: EMPTY_AUTHORS });
     };
 }
