@@ -24,6 +24,7 @@ export default function Footer() {
 
     const handleChange = (event) => {
         setAuthor({ ...author, name: event.target.value });
+        !event.target.value.length && dispatch(getAllBooks());
     };
 
     const handledClick = (event) => {
