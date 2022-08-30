@@ -8,9 +8,7 @@
     let errores = {};
   
     if(!input.publisherId){
-      errores.publisherId = " "
-    }else if(!/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(input.publisherId)){   
-      errores.publisherId = "Se requiere"
+      errores.publisherId = "Se requiere la editorial "
     }
 
     if(!input.title){
@@ -36,9 +34,9 @@
     if(!input.image){
         errores.image = " La imagen se requiere  "
       } 
-      // else if (! /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/.test(input.image)){
-      //   errores.image = "Formato incorrecto de iamgen"
-      // }
+      else if (! /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/.test(input.image)){
+        errores.image = "Formato incorrecto de iamgen"
+      }
 
     if(!input.pageCount){
         errores.pageCount  = " Se requiere el numero de pagina"
@@ -48,13 +46,9 @@
       errores.price = " El precio debe ser un numero"
    } 
 
-    if(!input.currentStock){
-        errores.currentStock  = " Se requiere el stock"
-    } else if (input.currentStock < 1){
-        errores.currentStock = " El stock debe ser mayor a 0"
-    } else if( !typeof input.currentStock === "number"){
-      errores.price = " El precio debe ser un numero"
-  } 
+    // if (parseInt(input.currentStock) >= 0){
+    //     errores.currentStock = " El stock debe ser mayor o igual a 0"
+    // } 
     
     
     return errores

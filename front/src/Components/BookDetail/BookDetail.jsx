@@ -110,7 +110,7 @@ export default function BookDetail() {
                                         to={`/catalog/author/${a.id}`}
                                         className={styles.active}
                                     >
-                                        {a.name}
+                                      {" "}   {a.name}
                                     </NavLink>
                                 </h4>
                             ))}
@@ -182,7 +182,7 @@ export default function BookDetail() {
                                     {isActive ? "ACTIVO" : "BORRADO"}
                                 </button>
 
-                                <button onClick={handleClickModal}>EDITAR</button>
+                                {/* <button onClick={handleClickModal}>EDITAR</button> */}
                             </div>
                         </div>
                     </div>
