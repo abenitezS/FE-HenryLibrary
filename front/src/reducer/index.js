@@ -7,7 +7,6 @@ import {
     GET_ALL_BOOKS_BY_CATEGORY,
     POST_BOOK,
     SET_PAGE,
-    GET_BOOKS_COUNT,
     BANNED_BOOK,
     DELETE_LOGICO_BOOK,
     SET_ALL_BOOKS_BY_AUTHOR,
@@ -26,7 +25,6 @@ const initialState = {
     msg: [],
     createBooks: [],
     page: 0,
-    cantBooks: 0,
     status: "not-authenticated",
     uid: null,
     email: null,
@@ -83,12 +81,6 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 page: action.payload,
-            };
-
-        case GET_BOOKS_COUNT:
-            return {
-                ...state,
-                cantBooks: action.payload,
             };
 
         case BANNED_BOOK:
