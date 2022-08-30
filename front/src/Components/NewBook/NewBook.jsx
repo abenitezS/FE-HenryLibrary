@@ -81,7 +81,9 @@ export default function NewRecipe() {
                 })
             );
 
-            Object.keys(errores).length === 0 ? setChecked(false) : setChecked(true);
+            Object.keys(errores).length === 0
+                ? setChecked(false)
+                : setChecked(true);
         }
     }
 
@@ -103,7 +105,6 @@ export default function NewRecipe() {
             isBanned: false,
             authors: [],
             categories: [],
-            lenguages: "",
         });
         alert("Libro creado Exitosamente!");
     };
@@ -262,7 +263,7 @@ export default function NewRecipe() {
                         <div className={styles.containerInput}>
                             <label>Lenguaje: </label>
                             <select
-                                name="languages"
+                                name="language"
                                 value={book.language}
                                 className={styles.inputs}
                                 onChange={handleInputsChange}

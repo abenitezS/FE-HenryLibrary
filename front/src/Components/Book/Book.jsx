@@ -14,7 +14,8 @@ export default function Book({ id, title, authors, image, price, stock }) {
 
       {/* ACA VA FAVORITOS */}
       <div className={styles.imagenes}>
-      <button className={styles.icono} onClick={""}>AGREGAR A FAVORITOS</button>
+      <button className={styles.icono} >AGREGAR A FAVORITOS</button> 
+      {/* onClick={""} */}
 
       <NavLink to={`/catalog/detail/${id}`}>
         <img className={styles.img} src={image} alt="imagenDelLibro" />

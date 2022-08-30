@@ -12,6 +12,7 @@ import flor from "./fotos/flor.jpg"
 import jova from "./fotos/jova.jpg"
 import gabriel from "./fotos/gabriel.jpg"
 import gustavo from "./fotos/gustavo.jpg"
+import felipe from "./fotos/felipe.jpg"
 
 
 
@@ -56,7 +57,7 @@ export default function AboutUs() {
       </div>
 
 
-      <div><h2 className={styles.titulo}>CREADORES</h2></div>
+      <div><h2 className={styles.titulo}>DESARROLLADORES</h2></div>
 
 
       <div className={styles.creadores}>
@@ -94,7 +95,7 @@ export default function AboutUs() {
       </div>
 
       <div className={styles.contenedor}>
-        <img className={styles.img} src="" alt="foto"/>
+        <img className={styles.img} src={felipe} alt="foto"/>
         <h2 className={styles.nombre}>A. FELIPE YEPES</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
@@ -106,7 +107,7 @@ export default function AboutUs() {
       </div>
 
       <div className={styles.contenedor}>
-         <img className={styles.img} src="" alt="foto"/>
+         <img className={styles.img} src={gustavo} alt="foto"/>
         <h2 className={styles.nombre}>GUSTAVO ENCINAS</h2>
         <h3 className={styles.funcion}>Full Stack Developer</h3>
       </div>
