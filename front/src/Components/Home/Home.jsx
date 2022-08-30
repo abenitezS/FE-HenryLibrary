@@ -15,6 +15,7 @@ import Paginated from "../Paginated/Paginated.jsx";
 //CSS
 import styles from "./Home.module.css";
 import banner from "./banner.jpg";
+import Loading from "../Loading/Loading.jsx";
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function Home() {
         !search && dispatch(getAllBooks());
     }, [dispatch, search]);
 
-    console.log("allBooks", allBooks);
+    console.log("allBooks", allBooks.message);
 
     return (
         <div className={styles.home}>
@@ -71,13 +72,20 @@ export default function Home() {
                         </div>
                     </div>
                 </>
-            ) : (
+            ) 
+
+           
+            
+            : ( allBooks.message ? 
                 <div className={styles.ErrorSearch}>
-                    <h3 className={styles.errorH3}>
-                        NO SE ENCONTRO NADA CON ESE NOMBRE
-                    </h3>
-                    <h3>INTENTE NUEVAMENTE</h3>
-                </div>
+                    <h3 className={styles.errorH3}>{allBooks.message}</h3>
+
+                </div> 
+                
+                : 
+                
+                <Loading />
+
             )}
 
             <Footer />
