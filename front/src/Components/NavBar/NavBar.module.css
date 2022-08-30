@@ -1,0 +1,47 @@
+
+
+body{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.h1{
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 40px;
+    color: #ABABAB;
+    padding-left: 3rem;
+}
+
+.h1_1{
+    font-family: Quicksand;
+    font-weight: bolder;
+    font-size: 40px;
+    color: #01A86C;
+    margin-right: 15rem;
+}
+
+
+
+.iconos{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 1rem;
+    width: 6%;
+}
+
+.banderas{
+    display: flex;
+
+}
+
+.bandera{
+    margin-left: 0.5rem;
+}    

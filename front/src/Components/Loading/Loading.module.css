@@ -1,0 +1,14 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.loading {
+    display: flex;
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    justify-content: center;
+    width: 100%;
+    height: 210px;
+}

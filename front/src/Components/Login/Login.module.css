@@ -1,0 +1,99 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+
+
+.container {
+    right: 8rem;
+    top: 5rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    z-index: 100
+}
+
+.containerItems {
+    width: 18rem;
+    height: 21rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    box-shadow: 9px 10px 11px 10px #ABABAB;
+    padding-top: 30px;
+    background-color: rgba(255, 255, 255, 0.964);
+}
+
+
+.img {
+    width: 3.3rem;
+    height: 3.2rem;
+    background-color: #ABABAB;
+    border-radius: 180px;
+    align-content: center;
+    margin-bottom: 2rem;
+    box-shadow: 2px 1px 8px #ABABAB;
+}
+
+.input {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 1rem;
+    border-radius: 30px;
+    /* box-shadow: inset 0px 0px 12px 0px #888; */
+    border: 1px solid #ABABAB;
+    text-align: center;
+    color: #5d5d5d;
+    font-size: 13px;
+    /* border: none; */
+    outline: none;
+    background-color: #fff;
+    
+}
+
+.cuenta{
+    display: flex;
+    flex-direction: column;
+    color: #01A86C;
+    font-size: 10px;
+    margin-top: 4%;
+    text-decoration: underline;
+}
+
+.boton {
+    background-color: #01A86C;
+    height: 2rem;
+    width: 200px;
+    margin-top: 1rem;
+    border-radius: 10px;
+    font-weight: 500;
+    color: white
+
+}
+
+.boton:hover {
+    box-shadow: 2px 2px 4px #01a86b9b;
+}
+
+.iconoEmail{
+    position: absolute;
+    top: 7.5rem;
+    right: 13.5rem;
+}
+
+.iconoContraseña{
+    position: absolute;
+    top: 10.5rem;
+    right: 13.5rem;
+}
+
+.iconoVerContraseña{
+    position: absolute;
+    top: 10.5rem;
+    right: 3.5rem; 
+}

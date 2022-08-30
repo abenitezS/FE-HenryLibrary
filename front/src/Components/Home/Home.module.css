@@ -1,0 +1,81 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.home{
+    display: flex;
+    flex-direction: column; 
+    height: 100%;
+}
+
+.banner{
+    width: 90%;
+    height: 10%;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+
+.ordenamientos{
+    background-color: #F2F1EF;
+    width: 30%;
+    height: 3rem;
+    margin-left: 34rem;
+    margin-top: 5rem;
+}
+
+.paginado{
+    width: 15%;
+    height: 3rem;
+    margin-left: 70rem;
+    margin-top: 2rem;
+}
+
+.cuerpo{
+    width: 85%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: 5rem;
+}
+
+
+.filtro{
+    background-color: #F2F1EF;
+    width: 15%;
+    height: 45rem;
+}
+
+.cards{
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-around;
+    gap: 1.5rem
+}
+
+
+
+
+
+
+/* ERROR SEARCH */
+.ErrorSearch{
+  margin-top: 6rem;
+  margin-left: 13rem;
+  display: flex;
+  width: 70%;
+  height: 18rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorH3{
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    color: #01A86C;
+}
